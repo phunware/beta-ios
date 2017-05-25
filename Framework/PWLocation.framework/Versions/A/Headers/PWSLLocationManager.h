@@ -29,7 +29,7 @@
 @property (nonatomic, strong) NSDictionary *floorIDMapping;
 
 /**
-The map identifier obtained from Phunware. (read-only)
+ The map identifier obtained from Phunware. (read-only)
  */
 
 @property (nonatomic, readonly) NSString *mapID;
