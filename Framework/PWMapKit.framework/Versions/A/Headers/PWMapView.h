@@ -409,6 +409,16 @@ extern NSString *const PWRouteInstructionChangedNotificationKey;
  */
 @property(nonatomic, readonly) NSInteger zoomLevel;
 
+/**
+ *  The display name when sharing location
+ */
+@property(nonatomic, strong) NSString *sharedLocationDisplayName;
+
+/**
+ *  The user type when sharing location
+ */
+@property(nonatomic, strong) NSString *sharedLocationUserType;
+
 /**---------------------------------------------------------------------------------------
  * @name Instance Methods
  * ---------------------------------------------------------------------------------------
@@ -636,20 +646,6 @@ extern NSString *const PWRouteInstructionChangedNotificationKey;
 - (void)removeOverlays:(NSArray<id<MKOverlay>> *)overlays;
 
 #pragma mark - Location Sharing
-
-/**
- *  Sets the display name when sharing location
- *
- *  @param displayName A string denoting the display name.
- */
-- (void)setUserDisplayName:(NSString *)displayName;
-
-/**
- *  Sets the user type when sharing location
- *
- *  @param userType A string denoting the user type.
- */
-- (void)setUserType:(NSString *)userType;
 
 /**
  *  Starts sharing the user's current location
