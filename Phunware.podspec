@@ -1,11 +1,11 @@
 Pod::Spec.new do |s|
   s.name     = 'Phunware'
-  s.version  = '1.1.2.0'
+  s.version  = '1.1.2.1'
   s.license  = 'MIT'
   s.summary  = 'Phunware SDKs (BETA)'
   s.homepage = 'https://github.com/phunware/beta-ios'
   s.authors  = { 'Phunware' => 'info@phunware.com' }
-	s.source   = { :git => "https://github.com/phunware/beta-ios.git", :tag => "v1.1.2.0" }
+	s.source   = { :git => "https://github.com/phunware/beta-ios.git", :tag => "v1.1.2.1" }
   s.requires_arc = true
   
   s.ios.deployment_target = '9.0'  
@@ -14,7 +14,9 @@ Pod::Spec.new do |s|
   s.subspec 'Beta' do |ss|
 
   	ss.subspec 'Location' do |sss|
-      sss.summary = '3.1.2'
+      sss.description = <<-DESC
+                          3.1.2
+                        DESC
     	sss.ios.vendored_frameworks = 'Framework/PWLocation.framework'
 	  	sss.dependency 'PWCore'
 		  sss.dependency 'MistSDK'
@@ -27,7 +29,9 @@ Pod::Spec.new do |s|
 	  end
 
 		ss.subspec 'MapKit' do |sss|
-      sss.summary = '3.1.3'
+      sss.description = <<-DESC
+                          3.1.3
+                        DESC
     	sss.ios.vendored_frameworks = 'Framework/PWMapKit.framework'
 		  sss.ios.dependency 'Phunware/Beta/Location'
       sss.ios.dependency 'TMCache'
