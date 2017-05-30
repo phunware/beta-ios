@@ -38,52 +38,9 @@ pod 'Phunware/Beta/Ads'
 
 ```
 
-## PWCore
-
-### Documentation 
-http://phunware.github.io/maas-core-ios-sdk 
-
-### Setup
-First to import it with:
-> 
-> Objective-C
->  
-```objective-c
-#import <PWCore/PWCore.h>
-```
->
-> Swift
->
-```swift
-import PWCore
-```
->
-
-Then initialize it in the `application:didFinishLaunchingWithOptions:` method with:
-> 
-> Objective-C
-> 
-```objective-c
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{
- 	// These values can be found for your application in the MaaS portal (http://maas.phunware.com/clients).
-	[PWCore setApplicationID:<#(NSString *)#> accessKey:<#(NSString *)#> signatureKey:<#(NSString *)#> encryptionKey:@""];
-	...
-}
-```
->
-> Swift
-> 
-```swift
-func application(_ application: UIApplication, >didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-	// These values can be found for your application in the MaaS portal (http://maas.phunware.com/clients).
-	PWCore.setApplicationID(<#applicationID: String!#>, accessKey: <#String!#>, signatureKey: <#String!#>, encryptionKey: "")
-	...
-}
-```
->
-
 ## PWLocation
+
+3.1.2
 
 ### Documentation 
 http://phunware.github.io/maas-location-ios-sdk 
@@ -95,29 +52,11 @@ Then, TBD
 
 ## PWMapKit
 
+3.1.3
+
 ### Documentation 
 http://phunware.github.io/maas-location-ios-sdk 
 
-
-### Setup
-Firstly, you have to make sure the `PWCore` setup correctly.
-
-Then, TBD
-
-## PWMessaging
-
-### Documentation 
-http://phunware.github.io/maas-messaging-ios-sdk 
-
-### Setup
-Firstly, you have to make sure the `PWCore` setup correctly.
-
-Then, TBD
-
-## PWAds
-
-### Documentation 
-http://phunware.github.io/maas-ads-ios-sdk 
 
 ### Setup
 Firstly, you have to make sure the `PWCore` setup correctly.
