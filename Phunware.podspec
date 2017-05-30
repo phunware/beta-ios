@@ -1,26 +1,17 @@
 Pod::Spec.new do |s|
   s.name     = 'Phunware'
-  s.version  = '1.1.9.8'
+  s.version  = '1.1.9.9'
   s.license  = 'MIT'
   s.summary  = 'Phunware SDKs (BETA)'
   s.homepage = 'https://github.com/phunware/beta-ios'
   s.authors  = { 'Phunware' => 'info@phunware.com' }
-	s.source   = { :git => "https://github.com/phunware/beta-ios.git", :tag => "v1.1.9.8" }
+	s.source   = { :git => "https://github.com/phunware/beta-ios.git", :tag => "v1.1.9.9" }
   s.requires_arc = true
   
   s.ios.deployment_target = '9.0'  
   s.default_subspec = 'Beta'
   
   s.subspec 'Beta' do |ss|
-  
-  	ss.subspec 'Core' do |sss|
-  		sss.ios.vendored_frameworks = 'Framework/PWCore.framework'
-			sss.ios.frameworks = 'Security', 'QuartzCore', 'SystemConfiguration', 'MobileCoreServices', 'CoreTelephony'
-			sss.libraries = 'z', 'xml2.2'
-			sss.ios.dependency 'SSZipArchive'
-      sss.ios.dependency 'TMCache'
-      sss.ios.dependency 'AFNetworking'
-	  end
 
   	ss.subspec 'Location' do |sss|
     	sss.ios.vendored_frameworks = 'Framework/PWLocation.framework'
@@ -40,23 +31,6 @@ Pod::Spec.new do |s|
       sss.ios.dependency 'TMCache'
 	  	sss.ios.frameworks = 'Security', 'CoreGraphics', 'QuartzCore', 'SystemConfiguration', 'MobileCoreServices', 'CoreTelephony', 'CoreLocation', 'MapKit'
   	end
-
-    ss.subspec 'Engagement' do |sss|
-      sss.ios.vendored_frameworks = 'Framework/PWEngagement.framework'
-      sss.dependency 'Phunware/Beta/Core'
-      sss.dependency 'FMDB'
-
-      sss.ios.frameworks = 'CoreLocation'
-      sss.library = 'sqlite3', 'z'
-    end
-	  
-	  ss.subspec 'Ads' do |sss|
-    	sss.ios.vendored_frameworks = 'Framework/PWAdvertising.framework'
-	  	sss.dependency 'Phunware/Beta/Core'
-
-		  sss.ios.frameworks = 'Security', 'QuartzCore', 'SystemConfiguration', 'MobileCoreServices', 'CoreTelephony', 'MessageUI', 'EventKit', 'EventKitUI', 'CoreMedia', 'AVFoundation', 'MediaPlayer', 'AudioToolbox', 'AdSupport', 'StoreKit', 'WebKit'
-  		sss.library = 'sqlite3', 'z'
-	  end
 	  
   end
 
