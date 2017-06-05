@@ -9,3 +9,9 @@
 	* Get rid of SenionLab SDK implementation
 * PWMapKit
 	* Identical to PWMapKit v3.1.3 (https://github.com/phunware/maas-mapping-ios-sdk/tree/v3.1.3)
+
+##v1.2.0.4 (Monday, June 5th, 2017)
+
+* PWMapKit
+	* Implement snap heading
+	* Improve the route calculator algorithm
