@@ -2,7 +2,8 @@
 //  PWPointOfInterest.h
 //  PWMapKit
 //
-//  Copyright © 2017 Phunware. All rights reserved.
+//  Created by Steven Spry on 5/12/16.
+//  Copyright © 2016 Phunware. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
