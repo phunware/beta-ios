@@ -2,8 +2,7 @@
 //  PWMapView.h
 //  PWMapKit
 //
-//  Created by Steven Spry on 5/12/16.
-//  Copyright © 2016 Phunware. All rights reserved.
+//  Copyright © 2017 Phunware. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
@@ -16,6 +15,7 @@
 #import "PWRouteInstruction.h"
 #import "PWCustomLocation.h"
 #import "PWBuildingAnnotationView.h"
+#import "PWLocationSharingDelegate.h"
 
 @protocol PWLocationManager;
 @class PWIndoorLocation;
@@ -316,6 +316,11 @@ extern NSString *const PWRouteInstructionChangedNotificationKey;
  *  The receiver’s delegate.
  */
 @property (nonatomic, weak) id<PWMapViewDelegate> delegate;
+
+/**
+ *  The location sharing delegate.
+ */
+@property (nonatomic, weak) id<PWLocationSharingDelegate> locationSharingDelegate;
 
 /**
  *  The location provider currently used by the map view.
@@ -629,5 +634,45 @@ extern NSString *const PWRouteInstructionChangedNotificationKey;
  *  @param overlays An array of objects, each of which conforms to the MKOverlay protocol.
  */
 - (void)removeOverlays:(NSArray<id<MKOverlay>> *)overlays;
+
+#pragma mark - Location Sharing
+
+/**
+ *  Sets the display name when sharing location
+ *
+ *  @param displayName A string denoting the display name.
+ */
+- (void)setUserDisplayName:(NSString *)displayName;
+
+/**
+ *  Sets the user type when sharing location
+ *
+ *  @param userType A string denoting the user type.
+ */
+- (void)setUserType:(NSString *)userType;
+
+/**
+ *  Starts sharing the user's current location
+ *
+ */
+- (void)startSharingUserLocation;
+
+/**
+ *  Starts retrieving other user's shared locations
+ *
+ */
+- (void)startRetrievingSharedLocations;
+
+/**
+ *  Stops sharing the user's current location
+ *
+ */
+- (void)stopSharingUserLocation;
+
+/**
+ *  Stops retrieving other user's shared locations
+ *
+ */
+- (void)stopRetrievingSharedLocations;
 
 @end
