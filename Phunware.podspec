@@ -29,8 +29,6 @@ Pod::Spec.new do |s|
       sss.dependency 'IndoorAtlas'
       sss.dependency 'TMCache'
 
-      sss.weak_framework = 'StepInsideSdk'
-
   		sss.ios.library = 'c++'
 		  sss.ios.frameworks = 'Security', 'QuartzCore', 'SystemConfiguration', 'MobileCoreServices', 'CoreTelephony', 'CoreBluetooth', 'CoreMotion', 'CoreLocation', 'MapKit'
   		sss.library = 'sqlite3', 'z', 'xml2.2'
