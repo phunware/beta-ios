@@ -15,3 +15,9 @@
 * PWMapKit
 	* Implement snap heading
 	* Improve the route calculator algorithm
+
+	
+##v1.2.1.2 (Tuesday, June 20th, 2017)
+
+* PWMapKit
+	* Pre-release PWMapKit v3.0.4
