@@ -2,7 +2,6 @@
 //  PWCustomPointOfInterest.h
 //  PWMapKit
 //
-//  Created by Xiangwei Wang on 07/03/2017.
 //  Copyright © 2017 Phunware. All rights reserved.
 //
 

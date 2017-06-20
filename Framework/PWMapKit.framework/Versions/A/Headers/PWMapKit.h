@@ -2,8 +2,7 @@
 //  PWMapKit.h
 //  PWMapKit
 //
-//  Created by Xiangwei Wang on 6/23/16.
-//  Copyright © 2016 Phunware. All rights reserved.
+//  Copyright © 2017 Phunware. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -20,6 +19,8 @@
 #import <PWMapKit/PWCustomPointOfInterest.h>
 #import <PWMapKit/PWBuildingAnnotationView.h>
 #import <PWMapKit/PWAnnotationLabel.h>
+#import <PWMapKit/PWSharedLocation.h>
+#import <PWMapKit/PWLocationSharingDelegate.h>
 
 @interface PWMapKit : NSObject
 
