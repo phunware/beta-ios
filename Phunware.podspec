@@ -15,7 +15,7 @@ Pod::Spec.new do |s|
   
 		ss.subspec 'MapKit' do |sss|
     	sss.ios.vendored_frameworks = 'Framework/PWMapKit.framework'
-		  sss.ios.dependency 'Phunware/Beta/Location'
+		  sss.ios.dependency 'Phunware/Beta/Location', '~> 3.2.1.1'
       sss.ios.dependency 'TMCache'
 	  	sss.ios.frameworks = 'Security', 'CoreGraphics', 'QuartzCore', 'SystemConfiguration', 'MobileCoreServices', 'CoreTelephony', 'CoreLocation', 'MapKit'
   	end
