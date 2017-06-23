@@ -19,6 +19,8 @@ static NSString *const kPWRouteInstructionDirectionElevatorUp = @"PWRouteInstruc
 static NSString *const kPWRouteInstructionDirectionElevatorDown = @"PWRouteInstructionDirectionElevatorDown";
 static NSString *const kPWRouteInstructionDirectionStairsUp = @"PWRouteInstructionDirectionStairsUp";
 static NSString *const kPWRouteInstructionDirectionStairsDown = @"PWRouteInstructionDirectionStairsDown";
+static NSString *const kPWRouteInstructionDirectionEscalatorUp = @"PWRouteInstructionDirectionEscalatorUp";
+static NSString *const kPWRouteInstructionDirectionEscalatorDown = @"PWRouteInstructionDirectionEscalatorDown";
 
 /**
  *  Defines the different types of custom locations.
@@ -63,7 +65,15 @@ typedef NS_ENUM(NSUInteger, PWRouteInstructionDirection) {
     /**
      *  Route instruction direction stairs down.
      */
-    PWRouteInstructionDirectionStairsDown
+    PWRouteInstructionDirectionStairsDown,
+    /**
+     *  Route instruction direction escalator up.
+     */
+    PWRouteInstructionDirectionEscalatorUp,
+    /**
+     *  Route instruction direction escalator down.
+     */
+    PWRouteInstructionDirectionEscalatorDown
 };
 
 /**
