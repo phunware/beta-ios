@@ -1,6 +1,6 @@
 # Phunware SDKs for iOS (Beta)
 
-> Version 1.0
+> Version 1.1.6.1
 
 Integrate with Phunware Beta SDKs for iOS with one line, or specify the SDKs you want to integrate with as you want.
  
