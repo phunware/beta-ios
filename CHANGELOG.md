@@ -1,5 +1,10 @@
 # Beta-iOS Change Log
 
+##v1.2.2.4 (Thursday, Jun 29th, 2017)
+
+* PWMapKit
+	* Zoom level improvement
+
 ##v1.1.6.1 (Tuesday, May 16th, 2017)
 
 * PWCore
