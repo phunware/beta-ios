@@ -84,7 +84,7 @@ func application(_ application: UIApplication, >didFinishLaunchingWithOptions la
 >
 
 ## PWLocation
-
+3.1.4
 ### Documentation 
 http://phunware.github.io/maas-location-ios-sdk 
 
@@ -94,7 +94,7 @@ Firstly, you have to make sure the `PWCore` setup correctly.
 Then, TBD
 
 ## PWMapKit
-
+3.1.4
 ### Documentation 
 http://phunware.github.io/maas-location-ios-sdk 
 

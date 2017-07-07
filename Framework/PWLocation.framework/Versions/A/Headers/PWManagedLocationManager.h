@@ -25,6 +25,8 @@
  */
 @property (nonatomic, strong) NSDictionary *floorIDMapping;
 
+@property (nonatomic, strong) NSNumber *mistLatencyThreshold;
+
 /**
  Initialize with a building identifier.
  @param buildingId The building identifier.
@@ -39,11 +41,5 @@
  Returns an array of PWManagedProviderInfo objects. Each provider will have its own PWManagedProviderInfo object. This will return nothing if the bundle has not already been loaded by a completed startUpdatingLocation call.
  */
 - (NSArray *)internalProviderInformation;
-
-@property (nonatomic, assign) BOOL indoorAtlasIsActive;
-@property (nonatomic, strong) NSString *indoorAtlasApiKeyId;
-@property (nonatomic, strong) NSString *indoorAtlasApiKeySecret;
-@property (nonatomic, strong) NSString *indoorAtlasFloorPlanId;
-@property (nonatomic, strong) NSDictionary *indoorAtlasMaasFloorMap;
 
 @end

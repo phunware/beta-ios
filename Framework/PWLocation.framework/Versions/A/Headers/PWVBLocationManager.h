@@ -16,6 +16,7 @@ extern NSString * const kMaasFloorIdentifierKey;
 extern NSString * const kFloorTopLeftKey;
 extern NSString * const kFloorTopRightKey;
 extern NSString * const kFloorBottomLeftKey;
+extern NSString * const kFloorBottomRightKey;
 extern NSString * const kFloorLatitudeKey;
 extern NSString * const kFloorLongitudeKey;
 
@@ -32,6 +33,8 @@ extern NSString * const kFloorLongitudeKey;
  The MIST SDK token, starts with D, S, or P.
  */
 @property (nonatomic, readonly) NSString *sdkToken;
+
+@property (nonatomic, strong) NSNumber *mistLatencyThreshold;
 
 - (instancetype)init NS_UNAVAILABLE;
 
