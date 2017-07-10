@@ -16,6 +16,7 @@ extern NSString * const kMaasFloorIdentifierKey;
 extern NSString * const kFloorTopLeftKey;
 extern NSString * const kFloorTopRightKey;
 extern NSString * const kFloorBottomLeftKey;
+extern NSString * const kFloorBottomRightKey;
 extern NSString * const kFloorLatitudeKey;
 extern NSString * const kFloorLongitudeKey;
 

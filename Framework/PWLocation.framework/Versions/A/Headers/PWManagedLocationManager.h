@@ -40,10 +40,4 @@
  */
 - (NSArray *)internalProviderInformation;
 
-@property (nonatomic, assign) BOOL indoorAtlasIsActive;
-@property (nonatomic, strong) NSString *indoorAtlasApiKeyId;
-@property (nonatomic, strong) NSString *indoorAtlasApiKeySecret;
-@property (nonatomic, strong) NSString *indoorAtlasFloorPlanId;
-@property (nonatomic, strong) NSDictionary *indoorAtlasMaasFloorMap;
-
 @end
