@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
 	s.source   = { :git => "https://github.com/phunware/beta-ios.git", :tag => "PWAdvertising-3.6.2.6" }
   s.requires_arc = true
 
-  s.resource  = 'Framework/PWAds.bundle'
+  s.resource  = 'Bundle/PWAds.bundle'
   s.source_files = 'Framework/**/*.{h,m}'
   s.public_header_files = 'Framework/PWAdvertising.framework/Versions/A/Headers/*.h'
   s.ios.vendored_frameworks = 'Framework/PWAdvertising.framework'
