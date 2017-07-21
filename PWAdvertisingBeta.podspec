@@ -9,8 +9,6 @@ Pod::Spec.new do |s|
   s.requires_arc = true
 
   s.resource  = 'Bundle/PWAds.bundle'
-  s.source_files = 'Framework/**/*.{h,m}'
-  s.public_header_files = 'Framework/PWAdvertising.framework/Headers/*.h'
   s.ios.vendored_frameworks = 'Framework/PWAdvertising.framework'
 
   s.ios.deployment_target = '9.0'

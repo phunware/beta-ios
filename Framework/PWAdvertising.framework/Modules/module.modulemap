@@ -1,5 +1,5 @@
 framework module PWAdvertising {
-  umbrella header "PWAdvertising.h"
+  umbrella header "PWAdvertising-umbrella.h"
 
   export *
   module * { export * }
