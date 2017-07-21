@@ -12,7 +12,7 @@ Pod::Spec.new do |s|
   
 	s.ios.vendored_frameworks = 'Framework/PWLocation.framework'
 	s.dependency 'PWCore'
-  s.dependency 'MistSDK', '0.0.1135'
+  s.dependency 'MistSDK'
   s.dependency 'TMCache'
 
 	s.ios.library = 'c++'
