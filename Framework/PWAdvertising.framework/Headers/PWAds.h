@@ -15,14 +15,6 @@
 #import "PWAdsNativeAdLoader.h"
 #import "PWAdsNativeAdView.h"
 #import "PWAdsNativeAd.h"
-// Deprecated
-#import "PWAdsBrowserControllerDelegate.h"
-#import "PWAdsConstants.h"
-#import "PWAdsNativeAd.h"
-#import "PWAdsVideoAd.h"
-#import "PWAdsVideoAdClickThroughBrowser.h"
-#import "PWAdsVideoAdClickTrackingUIView.h"
-#import "PWAdsVideoAdError.h"
 
 #endif
 
