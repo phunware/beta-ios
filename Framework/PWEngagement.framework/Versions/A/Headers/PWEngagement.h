@@ -14,6 +14,8 @@
 #import <PWEngagement/PWMELocalNotification.h>
 #import <PWEngagement/PWMEAttributeManager.h>
 
+static NSString *const PWEngagementVersion = @"3.1.1.0";
+
 /**
  The message identifier key which may be included in the notification's userInfo dictionary.
  */
@@ -240,5 +242,6 @@ extern NSString *const PWMEMonitoredGeoZoneChangesNotificationKey;
  * @param completion The block that notifies the user when static identifier registration is complete, and whether or not there was an error on the registration request.
  */
 + (void)setStaticIdentifier:(NSString *)staticIdentifier completion:(void(^)(NSError *error))completion;
+
 
 @end
