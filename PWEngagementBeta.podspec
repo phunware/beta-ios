@@ -12,6 +12,7 @@ Pod::Spec.new do |s|
   s.ios.vendored_frameworks = 'Framework/PWEngagement.framework'
   s.dependency 'PWCore'
   s.dependency 'FMDB'
+  s.dependency 'MistSDK'
 
   s.library = 'sqlite3', 'z'
   s.ios.frameworks = 'CoreLocation'
