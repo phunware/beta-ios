@@ -1,11 +1,11 @@
 Pod::Spec.new do |s|
   s.name     = 'PWEngagementBeta'
-  s.version  = '3.1.1.6'
+  s.version  = '3.1.1.7'
   s.license  = 'MIT'
   s.summary  = 'Phunware PWEngagement SDK (BETA)'
   s.homepage = 'https://github.com/phunware/beta-ios'
   s.authors  = { 'Phunware' => 'info@phunware.com' }
-	s.source   = { :git => "https://github.com/phunware/beta-ios.git", :tag => "PWEngagement-3.1.1.6" }
+	s.source   = { :git => "https://github.com/phunware/beta-ios.git", :tag => "PWEngagement-3.1.1.7" }
   s.requires_arc = true
   s.ios.deployment_target = '9.0'
   
