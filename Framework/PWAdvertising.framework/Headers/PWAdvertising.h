@@ -2,21 +2,9 @@
 //  PWAdvertising.h
 //  PWAdvertising
 //
-//  Created by Rongbo Yang on 7/19/17.
-//  Copyright © 2017 Phunware, Inc. All rights reserved.
+//  Copyright © 2015 Phunware, Inc. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-
-//! Project version number for PWAdvertising.
-FOUNDATION_EXPORT double PWAdvertisingVersionNumber;
-
-//! Project version string for PWAdvertising.
-FOUNDATION_EXPORT const unsigned char PWAdvertisingVersionString[];
-
-// In this header, you should import all the public headers of your framework using statements like #import <PWAdvertising/PublicHeader.h>
-
-#import "PWAds.h"
 #import "PWAdsAppTracker.h"
 #import "PWAdsBannerView.h"
 #import "PWAdsBrowserControllerDelegate.h"
@@ -31,3 +19,25 @@ FOUNDATION_EXPORT const unsigned char PWAdvertisingVersionString[];
 #import "PWAdsRewardedVideo.h"
 #import "PWAdsVideoInterstitial.h"
 #import "PWAdsVideoBase.h"
+#import <PWCore/PWCore.h>
+
+static NSString * const PWAdvertisingVersion = @"3.6.3.4";
+
+@interface PWAdvertising : NSObject
+
+/**
+ Set the maximum number of bytes allowed on disk before it starts evicting objects.
+ 
+ @discussion The default cache size limit is 50 MB. It can be set to 0, or any value betweem 50 MB to 2 GB. After reaching the limit, the least recently used item(s) will be evicted on background thread.
+ 
+ @param byteLimit The maximum number of bytes allowed on disk
+ 
+ */
++ (void)setCacheByteLimit:(NSInteger)byteLimit;
+
+/**
+ Returns the name of the SDK, `PWAdvertising`.
+ */
++ (NSString *)serviceName;
+
+@end

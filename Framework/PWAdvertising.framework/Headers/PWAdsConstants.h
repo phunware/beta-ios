@@ -10,8 +10,6 @@
 #ifndef PWAds_iOS_Sample_PWAdsConstants_h
 #define PWAds_iOS_Sample_PWAdsConstants_h
 
-#define PWADS_VERSION @"3.6.2"
-
 #import <Foundation/Foundation.h>
 /**
  `PWAdsAdType` defines the available ad types for interstitial ads.
@@ -48,4 +46,8 @@ typedef NS_ENUM(unsigned int, PWAdsVideoType) {
 
 #define PWAdsDefaultLocationPrecision 6
 
+@interface PWAdsConstants : NSObject
+@end
+
 #endif
+
