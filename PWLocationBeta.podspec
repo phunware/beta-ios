@@ -1,17 +1,17 @@
 Pod::Spec.new do |s|
   s.name     = 'PWLocationBeta'
-  s.version  = '3.1.6.3'
+  s.version  = '3.1.6.4'
   s.license  = 'MIT'
   s.summary  = 'Phunware PWLocation SDK (BETA)'
   s.homepage = 'https://github.com/phunware/beta-ios'
   s.authors  = { 'Phunware' => 'info@phunware.com' }
-	s.source   = { :git => "https://github.com/phunware/beta-ios.git", :tag => "PWLocation-3.1.6.3" }
+	s.source   = { :git => "https://github.com/phunware/beta-ios.git", :tag => "PWLocation-3.1.6.4" }
   s.requires_arc = true
   
   s.ios.deployment_target = '9.0'
   
 	s.ios.vendored_frameworks = 'Framework/PWLocation.framework'
-	s.dependency 'PWCoreBeta'
+	s.dependency 'PWCore'
   s.dependency 'MistSDK'
   s.dependency 'TMCache'
 
