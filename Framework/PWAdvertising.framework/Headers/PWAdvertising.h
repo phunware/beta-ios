@@ -21,7 +21,7 @@
 #import "PWAdsVideoBase.h"
 #import <PWCore/PWCore.h>
 
-static NSString * const PWAdvertisingVersion = @"3.6.3.11";
+static NSString * const PWAdvertisingVersion = @"3.6.3.12";
 
 @interface PWAdvertising : NSObject
 
