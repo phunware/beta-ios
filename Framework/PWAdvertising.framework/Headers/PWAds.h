@@ -1,29 +1,25 @@
 //
-//  PWAdvertising.h
+//  PWAds.h
 //  PWAdvertising
 //
 //  Copyright © 2015 Phunware, Inc. All rights reserved.
 //
 
+#ifndef PWAds_iOS_SDK_h
+#define PWAds_iOS_SDK_h
 #import "PWAdsAppTracker.h"
-#import "PWAdsBannerView.h"
-#import "PWAdsBrowserControllerDelegate.h"
-#import "PWAdsConstants.h"
-#import "PWAdsInterstitial.h"
-#import "PWAdsLandingPage.h"
-#import "PWAdsNativeAd.h"
-#import "PWAdsNativeAdLoader.h"
-#import "PWAdsNativeAdManager.h"
-#import "PWAdsNativeAdView.h"
 #import "PWAdsRequest.h"
-#import "PWAdsRewardedVideo.h"
+#import "PWAdsBannerView.h"
+#import "PWAdsInterstitial.h"
 #import "PWAdsVideoInterstitial.h"
-#import "PWAdsVideoBase.h"
-#import <PWCore/PWCore.h>
+#import "PWAdsNativeAdLoader.h"
+#import "PWAdsNativeAdView.h"
+#import "PWAdsNativeAd.h"
+#endif
 
-static NSString * const PWAdvertisingVersion = @"3.6.3.16";
+__attribute__((deprecated("PWAds is deprecated, please use PWAdvertising instead")))
 
-@interface PWAdvertising : NSObject
+@interface PWAds : NSObject
 
 /**
  Set the maximum number of bytes allowed on disk before it starts evicting objects.
@@ -34,10 +30,5 @@ static NSString * const PWAdvertisingVersion = @"3.6.3.16";
  
  */
 + (void)setCacheByteLimit:(NSInteger)byteLimit;
-
-/**
- Returns the name of the SDK, `PWAdvertising`.
- */
-+ (NSString *)serviceName;
 
 @end
