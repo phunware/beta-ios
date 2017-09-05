@@ -5,6 +5,7 @@
 //  Copyright © 2015 Phunware, Inc. All rights reserved.
 //
 
+#import "PWAds.h"
 #import "PWAdsAppTracker.h"
 #import "PWAdsBannerView.h"
 #import "PWAdsBrowserControllerDelegate.h"
@@ -21,7 +22,7 @@
 #import "PWAdsVideoBase.h"
 #import <PWCore/PWCore.h>
 
-static NSString * const PWAdvertisingVersion = @"3.6.3.16";
+static NSString * const PWAdvertisingVersion = @"3.6.3.17";
 
 @interface PWAdvertising : NSObject
 
