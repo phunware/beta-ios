@@ -82,7 +82,10 @@
  *  @param completion    Completion handler that is called once the route's calculation is complete.
  *  @discussion Please change to use `createRouteFrom: to: accessibility: excludedPoints: completion:`
  */
-+ (void)initRouteFrom:(PWPointOfInterest *)startPoint to:(PWPointOfInterest *)endPoint accessibility:(BOOL)accessibility completion:(void(^)(PWRoute *route, NSError *error))completion __deprecated;
+//+ (void)initRouteFrom:(PWPointOfInterest *)startPoint to:(PWPointOfInterest *)endPoint accessibility:(BOOL)accessibility completion:(void(^)(PWRoute *route, NSError *error))completion __deprecated;
++ (void)initRouteFrom:(PWPointOfInterest *)startPoint to:(PWPointOfInterest *)endPoint accessibility:(BOOL)accessibility completion:(void(^)(PWRoute *route, NSError *error))completion;
+
++ (void)createRouteWith:(NSMutableArray *) pois accessibility: (BOOL) accessibility excludedPoints: (NSArray *) excludedPoints forBuilding: (PWBuilding *) building completion: (void(^) (PWRoute *route, NSError *error)) completion;
 
 /**
  *  Instantiates a new PWRoute object using the given parameters. Calculates a route to navigate between the start POI and the end POI. The completion handler is called when the route is fully calculated.
