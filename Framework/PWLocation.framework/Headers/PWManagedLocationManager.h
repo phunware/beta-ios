@@ -40,4 +40,9 @@
  */
 - (NSArray *)internalProviderInformation;
 
+/**
+ Use the device's pressure sensor to prevent erroneous floor switches. Disabled by default and not recommended for most setups.
+ */
+@property (nonatomic, assign) BOOL stabilizeFloorSwitching;
+
 @end

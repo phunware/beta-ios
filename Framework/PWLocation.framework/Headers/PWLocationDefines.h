@@ -69,3 +69,4 @@ extern NSInteger const PWMaximumNumberOfLocations;
 extern NSString *const PWLocationDebugNotification;
 extern NSString *const PWProviderFloorId;
 extern NSString *const PWMistLatencyValue;
+extern NSString *const PWFloorSwitchPrevention;
