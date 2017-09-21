@@ -1,5 +1,5 @@
 framework module PWCore {
-  umbrella header "PWCore.h"
+  umbrella header "PWCore-umbrella.h"
 
   export *
   module * { export * }
