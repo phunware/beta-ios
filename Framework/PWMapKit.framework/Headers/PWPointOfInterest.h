@@ -18,26 +18,36 @@
 /**
  *  A summary description of the point-of-interest.
  */
-@property (readonly) NSString *summary;
+@property (nonatomic, readonly) NSString *summary;
 
 /**
  *  The PWFloor object that the point-of-interest is a member of.
  */
-@property (readonly, weak) PWFloor *floor;
+@property (nonatomic, readonly, weak) PWFloor *floor;
 
 /**
  *  The PWPointOfInterestType object that the point-of-interest is a member of.
  */
-@property (readonly) PWPointOfInterestType *pointOfInterestType;
+@property (nonatomic, readonly) PWPointOfInterestType *pointOfInterestType;
 
 /**
  *  The representative UIImage of the point-of-interest.
  */
-@property (readonly) UIImage *image;
+@property (nonatomic, readonly) UIImage *image;
 
 /**
  * Metadata associated with the point-of-interest.
  */
-@property (readonly) NSDictionary *metaData;
+@property (nonatomic, readonly) NSDictionary *metaData;
+
+/**
+ * The title of the Point of Interest.
+ */
+@property (nonatomic, copy, readwrite) NSString *title;
+
+/**
+ * The subtitle of the Point of Interest.
+ */
+@property (nonatomic, copy, readwrite) NSString *subtitle;
 
 @end

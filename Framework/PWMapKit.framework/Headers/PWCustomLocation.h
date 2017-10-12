@@ -14,6 +14,7 @@
 /**
  * An annotation which represents a user's dropped pin.
  */
+__attribute__ ((deprecated))
 @interface PWCustomLocation : NSObject<PWMapPoint>
 
 /**

@@ -58,9 +58,9 @@ typedef NS_ENUM(NSUInteger, PWRouteSnapTolerance) {
  `PWTrackingMode` is used to indicate how to track the user's indoor location on a map.
  */
 typedef NS_ENUM(NSUInteger, PWTrackingMode) {
-    PWTrackingModeNone,
-    PWTrackingModeFollow,
-    PWTrackingModeFollowWithHeading
+    PWTrackingModeNone, // The map does not follow the user location
+    PWTrackingModeFollow, // The map follows the user location
+    PWTrackingModeFollowWithHeading // The map follows the user location and rotates when the heading changes
 };
 
 /**
@@ -393,6 +393,12 @@ typedef NS_ENUM(NSUInteger, PWTrackingMode) {
  */
 @property(nonatomic, strong) NSString *sharedLocationUserType;
 
+/**
+ The time interval the user stays in `PWTrackingModeNone` mode, it will automatically change back to the follow mode set by user.
+ @discussion Set to `-1` if you don't want enable this feature, and `10` seconds is used by default.
+ */
+@property(nonatomic) NSInteger trackingModeSwitchInterval;
+
 #pragma mark - Initializing a Map View Object
 
 /**
@@ -433,19 +439,6 @@ typedef NS_ENUM(NSUInteger, PWTrackingMode) {
  @discussion If the user's location is being displayed, it will not be hidden.
  */
 - (void)unregisterLocationManager;
-
-/**
- Notify a PWMapView instance that it is appearing onscreen in a view controller.
- @discussion This method must be called by all view controllers that display a PWMapView instance. It allows the map view to initiate processes related to location tracking and may be used for future enhancements. The call must be made during the view controller's `-viewWillAppear:` implementation.
- */
-- (void)willAppear;
-
-/**
- Notifies a PWMapView instance that it no longer appears onscreen in a view controller.
- @discussion This method must be called by all view controllers that display a PWMapView instance. It allows the map view to throttle down processes related to location tracking and may be used for future enhancements. The call must be made during the view controller's `-viewDidDisappear:` implementation.
- */
-- (void)didDisappear;
-
 
 #pragma mark - Displaying a Route
 
