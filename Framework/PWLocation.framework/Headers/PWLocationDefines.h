@@ -6,10 +6,18 @@
 //  Copyright (c) 2014 Phunware. All rights reserved.
 //
 
+#import <Foundation/Foundation.h>
+
+#import <PWLocation/PWLocation.h>
+#import <PWCore/PWCore.h>
+
 #define envString(env) [@{@(2):@"-dev",@(1):@"-stage",@(0):@""} objectForKey:@(env)]
 #define s3EnvString(env) [@{@(2):@"-dev",@(1):@"-stage",@(0):@"-prod"} objectForKey:@(env)]
 
-#import <Foundation/Foundation.h>
+#define PWLocationLogError(message, ...)   PWLogError([PWLocation serviceName],message, __VA_ARGS__)
+#define PWLocationLogWarning(message, ...)   PWLogWarning([PWLocation serviceName],message, __VA_ARGS__)
+#define PWLocationLogInfo(message, ...)   PWLogInfo([PWLocation serviceName],message, __VA_ARGS__)
+#define PWLocationLogDebug(message, ...)   PWLogDebug([PWLocation serviceName],message, __VA_ARGS__)
 
 #pragma mark - API
 
