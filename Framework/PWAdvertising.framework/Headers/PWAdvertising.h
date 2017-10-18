@@ -14,15 +14,13 @@
 #import "PWAdsLandingPage.h"
 #import "PWAdsNativeAd.h"
 #import "PWAdsNativeAdLoader.h"
-#import "PWAdsNativeAdManager.h"
 #import "PWAdsNativeAdView.h"
 #import "PWAdsRequest.h"
 #import "PWAdsRewardedVideo.h"
 #import "PWAdsVideoInterstitial.h"
 #import "PWAdsVideoBase.h"
-#import <PWCore/PWCore.h>
 
-static NSString * const PWAdvertisingVersion = @"3.6.3.17";
+static NSString * const PWAdvertisingVersion = @"3.6.3.18";
 
 @interface PWAdvertising : NSObject
 
