@@ -31,9 +31,6 @@
  */
 - (instancetype)initWithBuildingId:(NSInteger)buildingId;
 
-/* Temporarily, will be removed */
-- (void)setPrism:(NSDictionary *)config;
-
 - (instancetype)init NS_UNAVAILABLE;
 
 + (void)createWithBundleURL:(NSURL *)bundleURL completion:(void(^)(PWManagedLocationManager *managedLocationManager, NSError *error))completion;
