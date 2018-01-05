@@ -1,11 +1,11 @@
 Pod::Spec.new do |s|
   s.name     = 'PWMapKitBeta'
-  s.version  = '3.2.0.8'
+  s.version  = '3.2.0.9'
   s.license  = 'MIT'
   s.summary  = 'Phunware PWMapKit SDK (BETA)'
   s.homepage = 'https://github.com/phunware/beta-ios'
   s.authors  = { 'Phunware' => 'info@phunware.com' }
-	s.source   = { :git => "https://github.com/phunware/beta-ios.git", :tag => "PWMapKit-3.2.0.8" }
+	s.source   = { :git => "https://github.com/phunware/beta-ios.git", :tag => "PWMapKit-3.2.0.9" }
   s.requires_arc = true
   
   s.ios.deployment_target = '9.0'  
