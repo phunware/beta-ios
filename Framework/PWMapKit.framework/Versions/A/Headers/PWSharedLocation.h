@@ -58,9 +58,6 @@
  */
 @property (nonatomic, strong, readonly) NSString *userType;
 
-/**
- * Initialization
- */
 - (instancetype)init __unavailable;
 
 @end
