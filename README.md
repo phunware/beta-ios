@@ -1,131 +1,414 @@
-# Phunware SDKs for iOS (Beta)
+MaaS Advertising iOS SDK
+================
 
-> Version 1.1.6.1
+Version 3.5.0
 
-Integrate with Phunware Beta SDKs for iOS with one line, or specify the SDKs you want to integrate with as you want.
- 
-## Requirements
+This is Phunware's iOS SDK for the MaaS Advertising module. Visit http://maas.phunware.com/ for more details and to sign up.
 
-- iOS 9.0 or greater
-- Xcode 8 or greater
 
-## Installation
 
-We recommend using [CocoaPods](http://www.cocoapods.org), and add the following to your Podfile.
+Getting Started
+---------------
 
-```ruby
-pod 'Phunware/Beta'  # Pull in all SDKs
+- [Download MaaS Advertising](https://github.com/phunware/maas-ads-ios-sdk/archive/master.zip) and run the included sample app.
+- Continue reading below for installation and integration instructions.
+- Be sure to read the [documentation](http://phunware.github.io/maas-ads-ios-sdk/) for additional details.
 
-```
 
-If you don't want to use all of SDKs, there are multiple subspecs which can selectively install subsets of the SDK:
 
-```ruby
-# Only pull in PWCore SDK
-pod 'Phunware/Beta/Core'
+Installation
+------------
 
-# Only pull in PWLocation SDK, the `PWCore` is automatically pulled in as a dependency
-pod 'Phunware/Beta/Location'
+The following frameworks are required:
 
-# Only pull in PWMapKit SDK, the `PWCore` and `PWLocation` are automatically pulled in as dependencies
-pod 'Phunware/Beta/MapKit'
+````
+PWCore.framework
+SystemConfiguration.framework
+QuartsCore.framework
+CoreTelephony.framework
+MessageUI.framework
+EventKit.framework
+EventKitUI.framework
+CoreMedia.framework
+AVFoundation.framework
+MediaPlayer.framework
+AudioToolbox.framework
+WebKit.framework
+AdSupport.framework - enable support for IDFA
+StoreKit.framework - enable use of SKStoreProductViewController, displays app store ads without leaving your app
+````
 
-# Only pull in PWMessaging SDK, the `PWCore` is automatically pulled in as a dependency
-pod 'Phunware/Beta/Messaging'
+MaaS Advertising has a dependency on PWCore.framework, which is available here: https://github.com/phunware/maas-core-ios-sdk
 
-# Only pull in PWAds SDK, the `PWCore` is automatically pulled in as a dependency
-pod 'Phunware/Beta/Ads'
+It's recommended that you add the MaaS framesworks to the 'Vendor/Phunware' directory. This directory should contain PWCore.framework and MaaSAdvertising.framework, as well as any other MaaS frameworks that you are using.
 
-```
+**In the Build Settings for your target, you must include the following "Other Linker Flags:" -ObjC**
 
-## PWCore
+The following frameworks are optional:
 
-### Documentation 
-http://phunware.github.io/maas-core-ios-sdk 
+````
+CoreLocation.framework
+````
+CoreLocation is optional and is used for geo-targeting ads. Apple mandates that your app have a good reason for enabling location services and will deny your app if location is not a core feature for your app.
 
-### Setup
-First to import it with:
-> 
-> Objective-C
->  
-```objective-c
-#import <PWCore/PWCore.h>
-```
->
-> Swift
->
-```swift
-import PWCore
-```
->
+The following bundles are required:
 
-Then initialize it in the `application:didFinishLaunchingWithOptions:` method with:
-> 
-> Objective-C
-> 
-```objective-c
+````
+PWAds.bundle
+````
+
+PWAds.bundle includes files needed for media-rich advertisements that make use of device-specific features. It is included with this sample app.
+
+
+
+Integration
+----------
+
+The MaaS Advertising SDK allows developers to serve many types of ads, including banner, interstitial and video ads.
+
+### Initialization
+
+~~~~
+// In your AppDelegate.m file:
+#import <PWAdvertising/PWAdsAppTracker.h>
+...
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
- 	// These values can be found for your application in the MaaS portal (http://maas.phunware.com/clients).
-	[PWCore setApplicationID:<#(NSString *)#> accessKey:<#(NSString *)#> signatureKey:<#(NSString *)#> encryptionKey:@""];
-	...
+    PWAdsAppTracker *appTracker = [PWAdsAppTracker sharedAppTracker];
+    [appTracker reportApplicationOpen];
+    return YES;
 }
-```
->
-> Swift
-> 
-```swift
-func application(_ application: UIApplication, >didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-	// These values can be found for your application in the MaaS portal (http://maas.phunware.com/clients).
-	PWCore.setApplicationID(<#applicationID: String!#>, accessKey: <#String!#>, signatureKey: <#String!#>, encryptionKey: "")
-	...
+~~~~
+
+
+### Banner Usage
+
+~~~~
+// In your .h file:
+#import <PWAdvertising/PWAdsBannerView.h>
+@property (strong, nonatomic) PWAdsBannerView *pwAd;
+...
+
+// In your .m file:
+- (void)viewDidLoad
+{
+    self.pwAd = [[PWAdsBannerView alloc] initWithFrame:CGRectMake(0, 0, 320, 50)];
+    [self.view addSubview:self.pwAd];
+    
+    ...
+    
+    // To animate the banner transition with 3D effect
+    self.pwAd.loadAnimated = YES;
+    self.pwAd.bannerAnimationTransition = PWAdsBannerAnimationTransition3DRotation;
+    ...
+
+    // To create adsRequest:
+    PWAdsRequest *adsRequest = [PWAdsRequest requestWithZoneID:@"**YOUR ZONE ID**"];
+
+    //To set customized parameters:
+    [adsRequest setValue:@"**YOUR CREATE ID**" forKey:@"creativeID"];
+    adRequest.testMode = YES;//set test mode,Default is NO.
+    
+    // To kick off banner rotation
+    [self.pwAd loadAdsRequest:adsRequest]];
+    ...
 }
-```
->
 
-## PWLocation
+~~~~
 
-### Documentation 
-http://phunware.github.io/maas-location-ios-sdk 
+### Interstitial Usage
 
-### Setup
-Firstly, you have to make sure the `PWCore` setup correctly.
+~~~~
+// In your .h file:
+#import <PWAdvertising/PWAdsInterstitial.h>
+...
 
-Then, TBD
+@property (strong, nonatomic) PWAdsInterstitial *interstitialAd;
+...
 
-## PWMapKit
+// In your .m file:
+- (void)viewDidLoad 
+{
+    self.interstitialAd = [PWAdsInterstitial new];
+    self.interstitialAd.delegate = self;
+    PWAdsRequest *request = [PWAdsRequest requestWithZoneID:@"**YOUR ZONE ID**"];
+    [self.interstitialAd loadAdsRequest:request];
+    ...
+}
 
-### Documentation 
-http://phunware.github.io/maas-location-ios-sdk 
+- (void)interstitialDidLoadAd:(PWAdsInterstitial *)interstitialAd
+{
+    [self.interstitialAd presentFromViewController:self];
+}
+~~~~
 
+### Video Interstitial Ads Usage
 
-### Setup
-Firstly, you have to make sure the `PWCore` setup correctly.
+~~~~  
+// In your .h file:
+#import <PWAdvertising/PWAdsVideoInterstitial.h>
+...
 
-Then, TBD
+@property (strong, nonatomic) PWAdsVideoInterstitial *videoInterstitial;
+...
 
-## PWMessaging
+// In your .m file:
+- (void)viewDidLoad
+{
+    self.videoInterstitial = [PWAdsVideoInterstitial new];
+    self.videoInterstitial.delegate = self;
+    ...
+}
 
-### Documentation 
-http://phunware.github.io/maas-messaging-ios-sdk 
+- (void)requestAds 
+{    
+    PWAdsRequest *request = [PWAdsRequest requestWithZoneID:**YOUR ZONE ID**];
+    [self.videoInterstitial loadAdsRequest:adsRequest];
+}
 
-### Setup
-Firstly, you have to make sure the `PWCore` setup correctly.
+- (IBAction)onRequestAds 
+{
+    [self requestAds];
+}
 
-Then, TBD
+#pragma mark - PWAdsVideoInterstitialDelegate
 
-## PWAds
+- (void)videoInterstitialDidLoadAd:(PWAdsVideoInterstitial *)videoInterstitial 
+{
+    NSLog(@"videoInterstitialDidLoadAd:");
+    [self.videoInterstitial presentFromViewController:self];
+}
 
-### Documentation 
-http://phunware.github.io/maas-ads-ios-sdk 
+- (void)videoInterstitial:(PWAdsVideoInterstitial *)videoInterstitial didFailError:(NSError *)error 
+{
+    NSLog(@"videoInterstitial:didFailError:");
+}
 
-### Setup
-Firstly, you have to make sure the `PWCore` setup correctly.
+- (void)videoInterstitialDidPresentModal:(PWAdsVideoInterstitial *)videoInterstitial 
+{
+    NSLog(@"videoInterstitialDidPresentModal:");
+}
 
-Then, TBD
+- (void)videoInterstitialWillDismissModal:(PWAdsVideoInterstitial *)videoInterstitial 
+{
+    NSLog(@"videoInterstitialWillDismissModal:");
+}
 
-Privacy
------------
-You understand and consent to Phunware’s Privacy Policy located at www.phunware.com/privacy. If your use of Phunware’s software requires a Privacy Policy of your own, you also agree to include the terms of Phunware’s Privacy Policy in your Privacy Policy to your end users.
+- (void)videoInterstitialDidDismissModal:(PWAdsVideoInterstitial *)videoInterstitial 
+{
+    NSLog(@"videoInterstitialDidDismissModal:");
+}
+~~~~
 
+### Rewarded Video Ads Usage
 
+~~~~  
+// In your .h file:
+#import <PWAdvertising/PWAdsRewardedVideo.h>
+...
+
+@property (strong, nonatomic) PWAdsRewardedVideo *rewardedVideo;
+...
+
+// In your .m file:
+- (void)viewDidLoad
+{
+    self.rewardedVideo = [PWAdsRewardedVideo new];
+    self.rewardedVideo.delegate = self;
+    ...
+}
+
+- (void)requestAds 
+{    
+    PWAdsRequest *adsRequest = [PWAdsRequest requestWithZoneID:**YOUR ZONE ID**];
+    [self.videoInterstitial loadAdsRequest:adsRequest];
+
+    // Set User ID
+    // You should identify each user with a single ID.
+    adsRequest.userID = **CURRENT USER ID**;
+
+    // Add custom data for the request
+    // This custom data is going to be returned on playback susccess event
+    adsRequest.customData = [NSMutableDictionary dictionaryWithDictionary:@{
+        @"gameCustomKey1"   : @"gameCustomValue1",
+        @"gameCustomKey2"    : @"gameCustomValue2"
+    }];
+
+    [self.rewardedVideo loadAdsRequest:adsRequest];
+}
+
+- (IBAction)onRequestAds 
+{
+    [self requestAds];
+}
+
+#pragma mark - PWAdsVideoInterstitialDelegate
+
+- (void)rewardedVideoDidLoadAd:(PWAdsRewardedVideo *)rewardedVideo withAdExtensionData:(NSDictionary *)adExtensionData {
+    NSLog(@"rewardedVideoDidLoadAd:withAdExtensionData:");
+    [self.rewardedVideo presentFromViewController:self];
+}
+
+- (void)rewardedVideo:(PWAdsRewardedVideo *)rewardedVideo didFailError:(NSError *)error withAdExtensionData:(NSDictionary *)adExtensionData{
+    NSLog(@"rewardedVideo:didFailError:withAdExtensionData");
+}
+
+- (void)rewardedVideoDidEndPlaybackSuccessfully:(PWAdsRewardedVideo *)rewardedVideo withRVResponseObject:(NSDictionary *)customData andAdExtensionData:(NSDictionary *)adExtensionData {
+    NSLog(@"rewardedVideoDidEndPlaybackSuccessfully:withRVResponseObject:andAdExtensionData:");
+    NSLog(@"customData: %@", customData);
+    NSLog(@"adExtensionData: %@", adExtensionData);
+}
+~~~~
+
+### Landing Page Usage
+
+~~~~
+// In your .h file:
+#import <PWAdvertising/PWAdsLandingPage.h>
+...
+
+@property (strong, nonatomic) PWAdsLandingPage *landingPageAd;
+...
+
+// In your .m file:
+- (void)viewDidLoad 
+{
+    self.landingPageAd = [PWAdsLandingPage new];
+    self.landingPageAd.delegate = self;
+    PWAdsRequest *request = [PWAdsRequest requestWithZoneID:@"**YOUR ZONE ID**"];
+    [self.landingPageAd loadAdsRequest:request];
+    ...
+}
+
+- (void)landingPageDidLoadAd:(PWAdsLandingPage *)landingPageAd {
+
+    [self.landingPageAd presentFromViewController:self];
+}
+
+~~~~
+
+### Native Ad Usage
+
+~~~~
+// In your .h file:
+#import <PWAdvertising/PWAdsNativeAdLoader.h>
+#import <PWAdvertising/PWAdsRequest.h>
+#import <PWAdvertising/PWAdsNativeAdView.h>
+
+@interface MyViewController : UIViewController <PWAdsNativeAdLoaderDelegate>
+
+@property (nonatomic, retain) PWAdsNativeAdLoader *nativeAdLoader;
+...
+
+// In your .m file:
+...
+_nativeAdLoader = [PWAdsNativeAdLoader new];
+_nativeAdLoader.delegate = self;
+
+// Create ad request with the specified Zone ID.
+PWAdsRequest *adsRequest = [PWAdsRequest requestWithZoneID:@"**YOUR ZONE ID**"];
+...
+// You can set the number of ad object you want to request, default is 1.
+adsRequest.numberOfAds = 3;
+...
+[_nativeAdLoader loadAdsRequest:adsRequest];
+
+...
+
+- (void)nativeAdLoaderDidLoadAds:(NSArray *)nativeAds {
+
+    // nativeAds array is going to contain the numberOfAds you requested for if there are ads available for your request.
+
+    // Once the native ads are loaded you can grab an item from nativeAds array and create a custom PWAdsNativeAdView.
+
+    PWAdsNativeAd *newAd = [nativeAds lastObject]
+
+    // Create new Native Ad View
+    
+    PWAdsNativeAdView *nativeView = (PWAdsNativeAdView *)[[PWAdsNativeAdView alloc] initWithFrame:CGRectMake(x,y,width,height)];
+    nativeView.delegate = self;
+    nativeView.nativeAd = newAd;
+    adView = nativeView;
+
+    // Get data from `newAd` and add fields to your view:
+    
+    UILabel *titleLabel = [[UILabel alloc] init];
+    [titleLabel setFrame:CGRectMake(startingPointX,10,300,20)];
+    titleLabel.backgroundColor=[UIColor clearColor];
+    titleLabel.textColor=[UIColor blackColor];
+    titleLabel.userInteractionEnabled=YES;
+    titleLabel.font = [UIFont systemFontOfSize:12];
+    titleLabel.text = newAd.adTitle;
+    [adView addSubview:titleLabel];
+
+    ...
+
+    // By default the whole PWAdsNativeAdView if enabled to user interaction. If you tap anywhere in the PWAdsNativeAdView it'd take you to the ad destination. If you want to customize this behaviour you can specify the views you want to enable for user interation in your PWAdsNativeAdView.
+
+    [adView updateAdActionViews:@[titleLabel]];
+
+    // Then only titleLabel view will react to user's interaction.
+
+    ...
+
+    // Inside the sample app code you are going to find a custom and clean sample of a PWAdsNativeAdView builder: NativeCleanAdUnitView.h
+    
+    NativeCleanAdUnitView *cleanAdView = [[NativeCleanAdUnitView alloc] initWithFrame:CGRectMake(x, y, width, height)];
+    cleanAdView.delegate = self;
+    [cleanAdView showCleanAdUnit:newAd];
+    [_adContainerView addSubview:cleanAdView];
+}
+
+- (void)nativeAdLoader:(PWAdsNativeAdLoader *)loader didFailWithError:(NSError *)error {
+    NSLog(@"Native Ad Loader failed to load with the following error: %@", error.localizedDescription);
+}
+
+...
+
+~~~~
+
+### Listen for Location Updates
+
+If you want to allow for geotargeting, listen for location updates:
+
+~~~~
+@property (strong, nonatomic) CLLocationManager *locationManager;
+
+...
+
+// Start listening for location updates:
+self.locationManager = [[CLLocationManager alloc] init];
+self.locationManager.delegate = self;
+
+// iOS 8 check:
+if ([self.locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)]) {
+    [self.locationManager requestWhenInUseAuthorization];
+}
+[self.locationManager startUpdatingLocation];
+
+...
+
+- (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation {
+    // Notify the PW Ads banner when the location changes. New location will be used the next time an ad is requested.
+    [self.pwAd updateLocation:newLocation];
+}
+
+...
+
+// To stop monitoring location when complete to conserve battery life:
+[self.locationManager stopMonitoringSignificantLocationChanges];
+~~~~
+
+### Customization Options
+
+If you want to customize the appearance of the in-app browser controller that appears when a user taps on an ad, follow the below instructions:
+
+1. To customize the background color of the browser controller toolbar, in your app's Info.plist file add the key **pwAdsToolbarBgColor** with a color value represented in RGBA format (ex. orange = **255 149 0 1**).
+2. To customize the tint color of the browser controller toolbar items, in your app's Info.plist file add the key **pwAdsToolbarTintColor** with a color value represented in RGBA format (ex. blue = **0 0 255 1**).
+
+If you want to customize the appearance of the close button for interstitial ads, follow the below instructions:
+
+1. Create close button images at 32x32 @1x and 64x64 @2x.
+2. Name the newly created images **pwCustomClose.png** and **pwCustomClose@2x.png**.
+3. Add the pwCustomClose.png and pwCustomClose@2x.png images to your Xcode project.
