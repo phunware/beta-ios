@@ -8,6 +8,9 @@
 
 @protocol MKAnnotation;
 
+/**
+ * An interface for associating your content with a specific indoor map location.
+ */
 @protocol PWMapPoint <MKAnnotation>
 
 /**
@@ -24,6 +27,8 @@
  The building identifier for which this point applies.
  */
 @property (nonatomic, readonly) NSInteger buildingID;
+
+@optional
 
 /**
  A flag indicating whether it's an accessible point.

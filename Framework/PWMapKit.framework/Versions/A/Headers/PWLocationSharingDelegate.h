@@ -9,6 +9,9 @@
 
 @class PWSharedLocation;
 
+/**
+ * A protocol defines a set of optional methods that you can use to receive shared locations.
+ */
 @protocol PWLocationSharingDelegate <NSObject>
 
 /**
