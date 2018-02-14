@@ -174,12 +174,6 @@
  */
 - (NSString *) getMapName;
 
-/*!
- * Get all the maps on the site
- * @return maps a dictionary of maps keyed by mapId
- */
-- (NSDictionary *)getMaps;
-
 //Settings
 
 /**
@@ -212,41 +206,6 @@
 - (void) sendLogReport: (NSString *) comments;
 
 -(void)saveClientInformation:(NSMutableDictionary *)clientInformation;
-
-#pragma mark -- DR in Path
-
-// TODO: move to a category once DR is well tested.
-
-/**
- * Ingest the navigation path so DR can better snap the dot.
- */
--(void)setPathToDR:(NSData *)data;
-
-/**
- * Clear the navigation path so DR can forget about the path
- */
--(void)clearPath;
-
-/**
- * Get the inside dot configuration from DR. DR can either use LE vs. PF dot.
- * @return true means the DR is using LE. Default is false.
- */
--(BOOL)getUseLE;
-
-/**
- * Set the inside dot configuration from DR. DR can either use LE vs. PF dot.
- */
--(void)setUseLE:(BOOL)useLE;
-
-/**
- * Get the DR offset from DR
- */
--(NSNumber *)getDROffset;
-
-/**
- * Get the DR snapped heading from DR
- */
--(NSNumber *)getDRClient;
 
 #pragma mark --  RF recording
 
@@ -364,8 +323,6 @@
 
 - (void) mistManager: (MSTCentralManager *) manager didUpdateLEHeading: (NSDictionary *) leInfo;
 
-- (void) mistManager: (MSTCentralManager *) manager didUpdateDRHeading: (NSDictionary *) drInfo;
-
 #pragma mark - Raw Beacon RSSIs
 - (void) mistManager:(MSTCentralManager *)manager didUpdateBeaconList: (NSArray *) beaconList at: (NSDate *) dateUpdated;
 
@@ -407,16 +364,6 @@
  *  @param dateUpdated      Returns the timeUpdated
  */
 -(void)mistManager: (MSTCentralManager *) manager didUpdateRelativeLocation: (MSTPoint *) relativeLocation inMaps: (NSArray *) maps at: (NSDate *) dateUpdated;
-
-/**
- *  Called when MistFramework receives a DR location update and has map information.
- *
- *  @param manager          Returns the caller
- *  @param relativeLocation Returns the relative location
- *  @param maps             Returns the maps
- *  @param dateUpdated      Returns the timeUpdated
- */
--(void)mistManager: (MSTCentralManager *) manager didUpdateDRRelativeLocation: (NSDictionary *) drInfo inMaps: (NSArray *) maps at: (NSDate *) dateUpdated;
 
 //-(void)mistManager: (MSTCentralManager *)manager didUpdateComputedLocation:(MSTPoint *)point inMaps:(NSArray *)maps at:(NSDate *)dateUpdated;
 //
@@ -528,14 +475,6 @@
  */
 - (void) mistManager: (MSTCentralManager *) manager didUpdateMap: (MSTMap *) map at: (NSDate *) dateUpdated;
 
-/**
- * Provides the maps dictionary key by mapId
- *  @param manager     Returns the caller
- *  @param maps        Returns the the maps for all sites.
- *  @param dateUpdated Returns the date updated.
- */
-- (void) mistManager: (MSTCentralManager *) manager didReceivedAllMaps: (NSDictionary *) maps at: (NSDate *) dateUpdated;
-
 - (void) mistManager:(MSTCentralManager *)manager didUpdateLocationDate: (NSString *) locationUpdateDate;
 
 #pragma mark - Setting Callbacks
@@ -569,10 +508,6 @@
 -(void)mistManager:(MSTCentralManager *)manager requestInTimeInts:(NSArray *)timeInts;
 -(void)mistManager:(MSTCentralManager *)manager requestInTimeIntsHistoric:(NSDictionary *)timeIntsHistoric;
 -(void)mistManager:(MSTCentralManager *)manager overallOutstandingRequestsCount:(long) unansweredRequestsCount;
-
-/**
- * Returns the number of timeout requests
- */
 -(void)mistManager:(MSTCentralManager *)manager timedOutRequestsCount: (long) timedOutRequestCount;
 
 #pragma mark location rx / tx 
