@@ -8,20 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-/*
- Completion block for a bundle fetch.
- */
-typedef void(^PWBundleFetchCompletion)(NSString *bundleDirectory, NSDictionary *userInfo, NSError *error);
-
-/*
- Key for userInfo in PWBundleFetchCompletion that explains why a failure to update the bundle occurred.
- */
-extern NSString * const PWBundleUpdateFailureKey;
-/*
- Key for userInfo in PWBundleFetchCompletion that reports if the bundle was changed or if it was taken from cache.
- */
-extern NSString * const PWBundleChangedKey;
-
 /**
  A generic class for download/decrypt/unzip a bundle for specific URL.
  */
@@ -43,51 +29,7 @@ extern NSString * const PWBundleChangedKey;
  @param url The url that the manager should load.
  @param completion A block that returns the unzipped bundle directory or error.
  */
-- (void)fetchBundleWithURL:(NSURL *)url withCompletion:(PWBundleFetchCompletion)completion;
-
-/**
- Fetch an encrypted bundle from the url, decprypt then unpack it, and save the necessary JSON files
- @param url The url that the manager should load.
- @param decryptionKey The key used to deprypt the bundle.
- @param completion A block that returns information about the bundle fetch and the unzipped bundle directory or error.
- */
-- (void)fetchBundleWithURL:(NSURL *)url decryptionKey:(NSString *)decryptionKey withCompletion:(PWBundleFetchCompletion)completion;
-
-/**
- Fetch an unencrypted bundle from the url, unpack it, and save the necessary JSON files
- @param url The url that the manager should load.
- @param retryInterval The interval to attempt retry.
- @param maxRetry The maximum no of times to retry.
- @param completion A block that returns information about the bundle fetch and the unzipped bundle directory or error.
- */
-- (void)fetchBundleWithURL:(NSURL *)url retryInterval:(NSInteger)retryInterval maxRetry:(NSInteger)maxRetry withCompletion:(PWBundleFetchCompletion)completion;
-
-/**
- Fetch an encrypted bundle from the url, decprypt then unpack it, and save the necessary JSON files
- @param url The url that the manager should load.
- @param decryptionKey The key used to deprypt the bundle.
- @param retryInterval The interval to attempt retry.
- @param maxRetry The maximum no of times to retry.
- @param completion A block that returns information about the bundle fetch and the unzipped bundle directory or error.
- */
-- (void)fetchBundleWithURL:(NSURL *)url retryInterval:(NSInteger)retryInterval maxRetry:(NSInteger)maxRetry decryptionKey:(NSString *)decryptionKey withCompletion:(PWBundleFetchCompletion)completion;
-
-/**
- Fetch building bundle for the specified building identifier, decprypt then unpack it, and save the necessary JSON files
- @param buildingId The building identifier.
- @param isDraft Tell it's a draft or live bundle.
- @param completion A block that returns information about the bundle fetch and the unzipped bundle directory or error.
- */
-- (void)fetchBuildingBundleById:(NSInteger)buildingId draft:(BOOL)isDraft withCompletion:(PWBundleFetchCompletion)completion;
-
-#pragma mark - Deprecated
-
-/**
- Fetch an unencrypted bundle from the url, unpack it, and save the necessary JSON files
- @param url The url that the manager should load.
- @param completion A block that returns the unzipped bundle directory or error.
- */
-- (void)fetchBundleWithURL:(NSURL *)url completion:(void(^)(NSString *bundleDirectory, BOOL bundleChanged, NSError *error))completion __deprecated;
+- (void)fetchBundleWithURL:(NSURL *)url completion:(void(^)(NSString *bundleDirectory, BOOL bundleChanged, NSError *error))completion;
 
 /**
  Fetch an encrypted bundle from the url, decprypt then unpack it, and save the necessary JSON files
@@ -95,7 +37,7 @@ extern NSString * const PWBundleChangedKey;
  @param decryptionKey The key used to deprypt the bundle.
  @param completion A block that returns the unzipped bundle directory or error.
  */
-- (void)fetchBundleWithURL:(NSURL *)url decryptionKey:(NSString *)decryptionKey completion:(void(^)(NSString *bundleDirectory, BOOL bundleChanged, NSError *error))completion __deprecated;
+- (void)fetchBundleWithURL:(NSURL *)url decryptionKey:(NSString *)decryptionKey completion:(void(^)(NSString *bundleDirectory, BOOL bundleChanged, NSError *error))completion;
 
 /**
  Fetch an unencrypted bundle from the url, unpack it, and save the necessary JSON files
@@ -104,7 +46,7 @@ extern NSString * const PWBundleChangedKey;
  @param maxRetry The maximum no of times to retry.
  @param completion A block that returns the unzipped bundle directory or error.
  */
-- (void)fetchBundleWithURL:(NSURL *)url retryInterval:(NSInteger)retryInterval maxRetry:(NSInteger)maxRetry completion:(void(^)(NSString *bundleDirectory, BOOL bundleChanged, NSError *error))completion __deprecated;
+- (void)fetchBundleWithURL:(NSURL *)url retryInterval:(NSInteger)retryInterval maxRetry:(NSInteger)maxRetry completion:(void(^)(NSString *bundleDirectory, BOOL bundleChanged, NSError *error))completion;
 
 /**
  Fetch an encrypted bundle from the url, decprypt then unpack it, and save the necessary JSON files
@@ -114,7 +56,7 @@ extern NSString * const PWBundleChangedKey;
  @param maxRetry The maximum no of times to retry.
  @param completion A block that returns the unzipped bundle directory or error.
  */
-- (void)fetchBundleWithURL:(NSURL *)url retryInterval:(NSInteger)retryInterval maxRetry:(NSInteger)maxRetry decryptionKey:(NSString *)decryptionKey completion:(void(^)(NSString *bundleDirectory, BOOL bundleChanged, NSError *error))completion __deprecated;
+- (void)fetchBundleWithURL:(NSURL *)url retryInterval:(NSInteger)retryInterval maxRetry:(NSInteger)maxRetry decryptionKey:(NSString *)decryptionKey completion:(void(^)(NSString *bundleDirectory, BOOL bundleChanged, NSError *error))completion;
 
 /**
  Fetch building bundle for the specified building identifier, decprypt then unpack it, and save the necessary JSON files
@@ -122,5 +64,5 @@ extern NSString * const PWBundleChangedKey;
  @param isDraft Tell it's a draft or live bundle.
  @param completion A block that returns the unzipped bundle directory or error.
  */
-- (void)fetchBuildingBundleById:(NSInteger)buildingId draft:(BOOL)isDraft completion:(void(^)(NSString *bundleDirectory, BOOL bundleChanged, NSError *error))completion __deprecated;
+- (void)fetchBuildingBundleById:(NSInteger)buildingId draft:(BOOL)isDraft completion:(void(^)(NSString *bundleDirectory, BOOL bundleChanged, NSError *error))completion;
 @end
