@@ -1,11 +1,11 @@
 Pod::Spec.new do |s|
-  s.name     = 'PWCoreBetaBeta'
+  s.name     = 'PWCoreBeta'
   s.version  = '3.3.1.0'
   s.license  = 'MIT'
   s.summary  = 'Phunware PWCoreBeta SDK (BETA)'
   s.homepage = 'https://github.com/phunware/beta-ios'
   s.authors  = { 'Phunware' => 'info@phunware.com' }
-	s.source   = { :git => "https://github.com/phunware/beta-ios.git", :tag => "PWCoreBeta-3.3.1.0" }
+	s.source   = { :git => "https://github.com/phunware/beta-ios.git", :tag => "PWCore-3.3.1.0" }
   s.requires_arc = true
   
   s.ios.deployment_target = '9.0'  
@@ -15,6 +15,6 @@ Pod::Spec.new do |s|
   s.ios.dependency 'TMCache'
   s.ios.dependency 'AFNetworking'
 
-  s.ios.vendored_frameworks = 'Framework/PWCoreBeta.framework'
+  s.ios.vendored_frameworks = 'Framework/PWCore.framework'
   s.ios.frameworks = 'Security', 'QuartzCore', 'SystemConfiguration', 'MobileCoreServices', 'CoreTelephony'
 end
