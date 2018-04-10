@@ -11,7 +11,7 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '9.0'
   
   s.ios.vendored_frameworks = 'Framework/PWLocation.framework'
-  s.ios.dependency 'PWCoreBetaBeta'
+  s.ios.dependency 'PWCoreBeta'
   s.ios.dependency 'MistSDK'
   s.ios.dependency 'TMCache'
 
