@@ -52,9 +52,4 @@
  */
 @property (nonatomic, assign) BOOL stabilizeFloorSwitching;
 
-/**
- Extra information about the PWManagedLocationManager and the data it consumes.
- */
-@property (nonatomic, strong) NSDictionary *userInfo;
-
 @end
