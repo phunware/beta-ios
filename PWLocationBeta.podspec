@@ -10,13 +10,13 @@ Pod::Spec.new do |s|
   
   s.ios.deployment_target = '9.0'
   
-	s.ios.vendored_frameworks = 'Framework/PWLocation.framework'
-	s.dependency 'PWCoreBetaBeta'
-  s.dependency 'MistSDK'
-  s.dependency 'TMCache'
+  s.ios.vendored_frameworks = 'Framework/PWLocation.framework'
+  s.ios.dependency 'PWCoreBetaBeta'
+  s.ios.dependency 'MistSDK'
+  s.ios.dependency 'TMCache'
 
-	s.ios.library = 'c++'
+  s.ios.library = 'c++'
   s.ios.frameworks = 'Security', 'QuartzCore', 'SystemConfiguration', 'MobileCoreServices', 'CoreTelephony', 'CoreBluetooth', 'CoreMotion', 'CoreLocation', 'MapKit'
-	s.library = 'sqlite3', 'z', 'xml2.2'
+  s.library = 'sqlite3', 'z', 'xml2.2'
 
 end
