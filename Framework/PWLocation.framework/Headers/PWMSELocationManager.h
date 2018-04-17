@@ -46,11 +46,6 @@ extern NSTimeInterval const PWMSELocationManagerDefaultUpdateInterval;
 @property (nonatomic, readonly) PWIndoorLocation *location;
 
 /**
- Initialization
- */
-- (instancetype)init __unavailable;
-
-/**
  Initializes the location manager with the specified venue GUID and venue location.
  @param venueGUID - The venue GUID is the specific venue identifier for a given indoor location.
  @param venueLocation - The location of the venue.
@@ -67,19 +62,8 @@ extern NSTimeInterval const PWMSELocationManagerDefaultUpdateInterval;
  */
 - (instancetype)initWithVenueGUID:(NSString *)venueGUID NS_DESIGNATED_INITIALIZER;
 
-/**
- Returns a Boolean value indicating whether location services are enabled on the device. 
- */
 - (BOOL)locationServicesAvailable;
-
-/**
- Starts the generation of updates that report the user’s current location.
- */
 - (void)startUpdatingLocation;
-
-/**
- Stops the generation of updates that report the user’s current location.
- */
 - (void)stopUpdatingLocation;
 
 @end
