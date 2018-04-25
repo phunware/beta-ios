@@ -16,7 +16,7 @@
 #import <PWCore/PWBundleManager.h>
 #import <PWCore/PWAPIManager.h>
 
-static NSString * const PWCoreVersion = @"3.4.0.2";
+static NSString * const PWCoreVersion = @"3.4.0.3";
 
 /**
  `PWCore` implements core functionality used in all MaaS modules. All MaaS modules have a `PWCore` dependency.
