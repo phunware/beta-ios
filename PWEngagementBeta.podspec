@@ -13,7 +13,7 @@ Pod::Spec.new do |s|
   s.ios.dependency 'PWCoreBeta'
   s.ios.dependency 'FMDB'
   s.ios.dependency 'MistSDK'
-                                                                                                                                                            
+                                                                                                                                                                
   s.library = 'sqlite3', 'z'
   s.ios.frameworks = 'CoreLocation'
 
