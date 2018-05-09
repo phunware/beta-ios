@@ -141,7 +141,9 @@ typedef NS_ENUM(NSUInteger,MSTCentralManagerStatusCode) {
     /**
      *  MSTCentralManagerStatusCodeUploadingMetaData - Indicates that CM is uploading the meta data.
      */
-    MSTCentralManagerStatusCodeUploadingMetaData
+    MSTCentralManagerStatusCodeUploadingMetaData,
+    
+    MSTCentralManagerPhunware
 };
 
 /**
