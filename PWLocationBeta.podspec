@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
   s.ios.dependency 'PWCoreBeta'
   s.ios.dependency 'MistSDK'
   s.ios.dependency 'TMCache'
-                                                                                                                                                                                            
+                                                                                                                                                                                                
   s.ios.library = 'c++'
   s.ios.frameworks = 'Security', 'QuartzCore', 'SystemConfiguration', 'MobileCoreServices', 'CoreTelephony', 'CoreBluetooth', 'CoreMotion', 'CoreLocation', 'MapKit'
   s.library = 'sqlite3', 'z', 'xml2.2'
