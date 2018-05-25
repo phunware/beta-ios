@@ -414,6 +414,11 @@ typedef NS_ENUM(NSUInteger, PWTrackingMode) {
  */
 @property(nonatomic) NSInteger trackingModeSwitchInterval;
 
+/**
+ For internal use only.
+ */
+@property (nonatomic) BOOL displayDebugLocationDots;
+
 #pragma mark - Initializing a Map View Object
 
 /**
