@@ -19,7 +19,7 @@
 #import <PWCore/PWAPIOperation.h>
 #import <PWCore/PWCoreDevice.h>
 
-static NSString * const PWCoreVersion = @"3.5.0.27";
+static NSString * const PWCoreVersion = @"3.6.0.0";
 
 /**
  `PWCore` implements core functionality used in all MaaS modules. All MaaS modules have a `PWCore` dependency.
