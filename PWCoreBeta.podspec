@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
   s.ios.dependency 'SSZipArchive'
   s.ios.dependency 'TMCache'
   s.ios.dependency 'AFNetworking'
-                                                                                                                                                                                                                                                                                                            
+                                                                                                                                                                                                                                                                                                                
   s.ios.vendored_frameworks = 'Framework/PWCore.framework'
   s.ios.frameworks = 'Security', 'QuartzCore', 'SystemConfiguration', 'MobileCoreServices', 'CoreTelephony'
 end
