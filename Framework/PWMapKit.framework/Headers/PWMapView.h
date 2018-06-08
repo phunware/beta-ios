@@ -405,6 +405,11 @@ typedef NS_ENUM(NSUInteger, PWTrackingMode) {
 @property (nonatomic) NSInteger trackingModeSwitchInterval;
 
 /**
+ Determines whether or not the waypoints are displaying as dots on route lines. This feature is turned off by default.
+ */
+@property (nonatomic) BOOL displayWaypointDotsOnRouteLine;
+
+/**
  For internal use only.
  */
 @property (nonatomic) BOOL displayDebugLocationDots;
