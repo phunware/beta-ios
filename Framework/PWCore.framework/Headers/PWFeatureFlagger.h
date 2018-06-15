@@ -10,7 +10,7 @@
 
 @interface PWFeatureFlagger : NSObject
 
-- (instancetype)init __unavailable;
+- (instancetype __nonnull)init __unavailable;
 + (BOOL)featureEnabled:(NSString *__nonnull)featureName;
 + (void)enable:(BOOL)enable feature:(NSString *__nonnull)featureName;
 + (void)enableAllFeatures:(BOOL)enable;

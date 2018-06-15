@@ -43,8 +43,6 @@ typedef NS_ENUM(NSInteger, PWEnvironment) {
 
 #pragma mark - Modules
 
-+ (void)registerModule:(NSString *__nonnull)moduleName;
-
 + (void)registerPhunwareModule:(NSString *__nonnull)moduleName version:(NSString *__nonnull)version withCompletion:(void (^__nullable)(NSError *__nullable error))completion;
 
 #pragma mark - Encryption
