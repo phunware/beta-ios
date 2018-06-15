@@ -171,7 +171,7 @@ typedef NS_ENUM(NSUInteger, PWTrackingMode) {
  @param userLocation The location object representing the user’s latest location. This property may be `nil`.
  @discussion While the showsIndoorUserLocation property is set to `YES`, this method is called whenever a new location update is received by the map view.
  */
-- (void)mapView:(PWMapView *)mapView locationManager:(id<PWLocationManager>)locationManager didUpdateIndoorUserLocation:(PWIndoorLocation *)userLocation;
+- (void)mapView:(PWMapView *)mapView locationManager:(id<PWLocationManager>)locationManager didUpdateIndoorUserLocation:(PWUserLocation *)userLocation;
 
 #pragma mark - Routing
 
