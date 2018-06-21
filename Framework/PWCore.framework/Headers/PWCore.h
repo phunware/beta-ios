@@ -15,8 +15,12 @@
 #import <PWCore/PWLoggableObject.h>
 #import <PWCore/PWBundleManager.h>
 #import <PWCore/PWAPIManager.h>
+#import <PWCore/PWAPIRequestOperation.h>
+#import <PWCore/PWAPIOperation.h>
+#import <PWCore/PWCoreDevice.h>
+#import <PWCore/PWFeatureFlagger.h>
 
-static NSString * const PWCoreVersion = @"3.6.0.7";
+static NSString * const PWCoreVersion = @"3.6.0.8";
 
 /**
  `PWCore` implements core functionality used in all MaaS modules. All MaaS modules have a `PWCore` dependency.
