@@ -57,4 +57,14 @@
  */
 @property (nonatomic, strong) NSDictionary *userInfo;
 
+#pragma mark - Internal Use Only
+#pragma mark Diagnostics
+
+- (void)startRecording;
+- (void)recordCustomFlag:(NSString *)customFlag;
+- (NSURL *)stopRecording;
+- (BOOL)isRecording;
+
+- (void)startPlaybackWithFileURLs:(NSArray *)fileURLs;
+
 @end
