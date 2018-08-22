@@ -15,7 +15,7 @@
 #import <PWEngagement/PWMELocalNotification.h>
 #import <PWEngagement/PWMEAttributeManager.h>
 
-static NSString *const PWEngagementVersion = @"3.5.0.1";
+static NSString *const PWEngagementVersion = @"3.5.0.2";
 
 /**
  The message identifier key which may be included in the notification's userInfo dictionary.
@@ -238,10 +238,10 @@ extern NSString *const PWEngagementWhenInUseAuthorizationNotificationKey;
 /**
  * Lets the mobile engagement service know that the app receives a notification, so that it can process it internally, typically when you receive a notification in `application:didReceiveRemoteNotification:fetchCompletionHandler:`, `userNotificationCenter:didReceiveNotificationResponse:withCompletionHandler:` and `userNotificationCenter:willPresentNotification:withCompletionHandler:`.
  * @param userInfo A dictionary that contains information related to the remote notification, potentially including a badge number for the app icon, an alert sound, an alert message to display to the user, a notification identifier, and custom data. The provider originates it as a JSON-defined dictionary that iOS converts to an NSDictionary object; the dictionary may contain only property-list objects plus NSNull.
- * @param notificationHandler A block that tells the notification with message which was received.
+ * @param completion A block that returns the notification with the received message or error.
  * @discussion The message deep linking could be fired from the `notificationHandler` block.
  */
-+ (void)didReceiveNotification:(NSDictionary *)userInfo withNotificationHandler:(void(^)(PWMELocalNotification *notification))notificationHandler;
++ (void)didReceiveNotification:(NSDictionary *)userInfo withCompletion:(void(^)(PWMEZoneMessage *message, NSError *error))completion;
 
 /**
  * Set the static identifier to be registered with the current device.
