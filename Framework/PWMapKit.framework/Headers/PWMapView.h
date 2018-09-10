@@ -481,7 +481,7 @@ typedef NS_ENUM(NSUInteger, PWTrackingMode) {
  Returns the current `PWRouteInstruction` being highlighted. If no route is displayed, this method will return `nil`.
  @return The current `PWRouteInstruction`. Can be `nil` if no `PWRoute` is loaded or if turn-by-turn routing is not being used.
  */
-- (PWRouteInstruction*)currentRouteInstruction;
+- (PWRouteInstruction *)currentRouteInstruction;
 
 /**
  Cancel the route displayed in the map view. This method will remove the route from the map view and set the `PWRoute` property to `nil`.
