@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
 	s.source   = { :git => "https://github.com/phunware/beta-ios.git", :tag => "PWCore-3.7.0.34" }
   s.requires_arc = true
   
-  s.ios.deployment_target = '9.0'  
+  s.platform = :ios, '10.0' 
   
   s.libraries    = 'z', 'xml2.2'
   s.ios.dependency 'SSZipArchive'
