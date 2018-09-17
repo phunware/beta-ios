@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
 	s.source   = { :git => "https://github.com/phunware/beta-ios.git", :tag => "PWLocation-3.5.1.4" }
   s.requires_arc = true
   
-  s.ios.deployment_target = '9.0'
+  s.platform = :ios, '10.0' 
   
   s.ios.vendored_frameworks = 'Framework/PWLocation.framework'
   s.ios.dependency 'PWCore'
