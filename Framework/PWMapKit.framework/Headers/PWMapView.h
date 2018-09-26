@@ -19,6 +19,7 @@
 @class PWBuildingAnnotationView;
 @class PWRoute;
 @class PWRouteInstruction;
+@class PWRouteUIOptions;
 @class PWLocation;
 @class PWUserLocation;
 @class PWCustomLocation;
@@ -406,8 +407,9 @@ typedef NS_ENUM(NSUInteger, PWTrackingMode) {
 
 /**
  Determines whether or not the waypoints are displaying as dots on route lines. This feature is turned off by default.
+ @discussion Use `PWRouteUIOptions.showJoinPoint' instead when displaying a route with `-navigateWithRoute: options:`.
  */
-@property (nonatomic) BOOL displayWaypointDotsOnRouteLine;
+@property (nonatomic) BOOL displayWaypointDotsOnRouteLine __deprecated;
 
 /**
  For internal use only.
@@ -462,6 +464,13 @@ typedef NS_ENUM(NSUInteger, PWTrackingMode) {
  @param route The `PWRoute` object to display in the map view.
  */
 - (void)navigateWithRoute:(PWRoute *)route;
+
+/**
+ Load a `PWRoute` object into the map view with specified color for the paths. This method will plot a basic route line on the map view. The route object must not be `nil`.
+ @param route The `PWRoute` object to display in the map view.
+ @param options The `PWRouteUIOptions` object to custom the color of route path, the junction type of line, etc.
+ */
+- (void)navigateWithRoute:(PWRoute *)route options:(PWRouteUIOptions *)options;
 
 /**
  Highlight the specified `PWRouteInstruction` on the map. If needed, this will change the current floor to the floor of the instruction.
