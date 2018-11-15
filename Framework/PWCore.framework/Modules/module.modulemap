@@ -1,4 +1,6 @@
 framework module PWCore {
-  header "PWCore-Swift.h"
-  requires objc
+  umbrella header "PWCore.h"
+
+  export *
+  module * { export * }
 }
