@@ -7,7 +7,9 @@ Pod::Spec.new do |s|
   s.authors  = { 'Phunware' => 'info@phunware.com' }
 	s.source   = { :git => "https://github.com/phunware/beta-ios.git", :tag => "PWEngagement-4.0.0.4" }
   s.requires_arc = true
+
   s.platform = :ios, '10.0' 
+  s.swift_version = '4.2'
   
   s.ios.vendored_frameworks = 'Framework/PWEngagement.framework'
   s.ios.dependency 'PWCoreBeta'
