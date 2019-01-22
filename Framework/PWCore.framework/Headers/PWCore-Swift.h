@@ -257,6 +257,8 @@ SWIFT_CLASS("_TtC6PWCore16AnalyticsManager")
 @end
 
 
+
+
 /// Fetches Maas Content Management objects. Updates and deletes content.
 SWIFT_CLASS("_TtC6PWCore10CMEManager")
 @interface CMEManager : NSObject
