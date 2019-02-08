@@ -1,5 +1,5 @@
 Pod::Spec.new do |s|
-  s.name     = 'PWCoreBeta'
+  s.name     = 'LoyaltyBeta'
   s.version  = '1.0.0.1'
   s.license  = 'MIT'
   s.summary  = 'Phunware LoyaltyBeta SDK (BETA)'
