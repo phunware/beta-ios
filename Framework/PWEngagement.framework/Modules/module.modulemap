@@ -1,4 +1,6 @@
 framework module PWEngagement {
-  header "PWEngagement-Swift.h"
-  requires objc
+  umbrella header "PWEngagement.h"
+
+  export *
+  module * { export * }
 }
