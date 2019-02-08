@@ -1,4 +1,4 @@
-framework module PWCore {
-  header "PWCore-Swift.h"
+framework module Loyalty {
+  header "Loyalty-Swift.h"
   requires objc
 }
