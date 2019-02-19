@@ -416,11 +416,6 @@ typedef NS_ENUM(NSUInteger, PWTrackingMode) {
  */
 @property (nonatomic) BOOL displayDebugLocationDots;
 
-/**
- For internal use only.
- */
-@property (nonatomic) BOOL cookedHeadingEnabled;
-
 #pragma mark - Initializing a Map View Object
 
 /**
