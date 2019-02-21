@@ -1,11 +1,11 @@
 Pod::Spec.new do |s|
   s.name     = 'PWCoreBeta'
-  s.version  = '4.0.0.9'
+  s.version  = '4.0.0.10'
   s.license  = 'MIT'
   s.summary  = 'Phunware PWCoreBeta SDK (BETA)'
   s.homepage = 'https://github.com/phunware/beta-ios'
   s.authors  = { 'Phunware' => 'info@phunware.com' }
-	s.source   = { :git => "https://github.com/phunware/beta-ios.git", :tag => "PWCore-4.0.0.9" }
+	s.source   = { :git => "https://github.com/phunware/beta-ios.git", :tag => "PWCore-4.0.0.10" }
   s.requires_arc = true
   
   s.platform = :ios, '10.0'
