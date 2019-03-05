@@ -4,8 +4,3 @@ framework module PWMapKit {
   export *
   module * { export * }
 }
-
-module PWMapKit.Swift {
-    header "PWMapKit-Swift.h"
-    requires objc
-}

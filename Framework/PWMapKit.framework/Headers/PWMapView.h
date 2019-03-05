@@ -6,7 +6,7 @@
 //
 
 #import <MapKit/MapKit.h>
-#import <PWLocation/PWLocation-Swift.h>
+#import <PWLocation/PWLocation.h>
 
 @protocol PWMapViewDelegate;
 @protocol PWLocationSharingDelegate;
@@ -172,7 +172,7 @@ typedef NS_ENUM(NSUInteger, PWTrackingMode) {
  @param userLocation The location object representing the user’s latest location. This property may be `nil`.
  @discussion While the showsIndoorUserLocation property is set to `YES`, this method is called whenever a new location update is received by the map view.
  */
-- (void)mapView:(PWMapView *)mapView locationManager:(id<LocationManager>)locationManager didUpdateIndoorUserLocation:(PWUserLocation *)userLocation;
+- (void)mapView:(PWMapView *)mapView locationManager:(id<PWLocationManager>)locationManager didUpdateIndoorUserLocation:(PWUserLocation *)userLocation;
 
 #pragma mark - Routing
 
@@ -416,6 +416,11 @@ typedef NS_ENUM(NSUInteger, PWTrackingMode) {
  */
 @property (nonatomic) BOOL displayDebugLocationDots;
 
+/**
+ For internal use only.
+ */
+@property (nonatomic) BOOL cookedHeadingEnabled;
+
 #pragma mark - Initializing a Map View Object
 
 /**
@@ -449,7 +454,7 @@ typedef NS_ENUM(NSUInteger, PWTrackingMode) {
  Register an indoor location manager provider with the map view. This location provider is started immediately and used when modifying the `indoorUserTrackingMode`.
  @param locationManager The location manager to register with the map view. The location manager must conform to the `PWLocationManager` protocol.
  */
-- (void)registerLocationManager:(id<LocationManager>)locationManager;
+- (void)registerLocationManager:(id<PWLocationManager>)locationManager;
 
 /**
  Unregister any indoor location manager that is registered with the map view.
