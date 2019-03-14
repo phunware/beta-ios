@@ -417,9 +417,9 @@ typedef NS_ENUM(NSUInteger, PWTrackingMode) {
 @property (nonatomic) BOOL displayDebugLocationDots;
 
 /**
- For internal use only.
+ Managed compass is an optional capability of PWLocation that improves the user experience while viewing the map by improving the alignment of the compass heading. The managed compass takes operating system readings and processes them prior to returning it to PWMapKit -- so there is no further coding required for developers once using this mode. Set to true to enable this feature (disabled by default). Note - results may vary by location, so please evaluate the performance for a given location prior to enabling this feature.
  */
-@property (nonatomic) BOOL cookedHeadingEnabled;
+@property (nonatomic) BOOL managedCompassEnabled;
 
 #pragma mark - Initializing a Map View Object
 
