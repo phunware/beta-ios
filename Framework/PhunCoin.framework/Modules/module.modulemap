@@ -1,4 +1,4 @@
-framework module Loyalty {
-  header "Loyalty-Swift.h"
+framework module PhunCoin {
+  header "PhunCoin-Swift.h"
   requires objc
 }
