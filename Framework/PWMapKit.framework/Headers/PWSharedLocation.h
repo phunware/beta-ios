@@ -6,7 +6,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <PWLocation/PWLocation.h>
+#import <PWLocation/PWLocation-Swift.h>
 
 /**
  *  A PWSharedLocation represents a shared location.
