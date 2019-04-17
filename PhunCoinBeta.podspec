@@ -10,6 +10,8 @@ Pod::Spec.new do |s|
   
   s.platform = :ios, '11.0'
   s.swift_version = '5.0'
+
+  s.ios.dependency 'Kingfisher', '~> 5.3'
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
   s.ios.vendored_frameworks = 'Framework/PhunCoin.framework'
 end
