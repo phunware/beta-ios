@@ -191,6 +191,7 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 
 @class NSCoder;
 
+/// Teaser view with a built in mechanism to display PhunCoin opt in takeover screens.
 SWIFT_CLASS("_TtC8PhunCoin10TeaserView")
 @interface TeaserView : UIView
 - (nonnull instancetype)initWithFrame:(CGRect)frame SWIFT_UNAVAILABLE;
@@ -198,6 +199,8 @@ SWIFT_CLASS("_TtC8PhunCoin10TeaserView")
 - (void)prepareForInterfaceBuilder;
 - (void)layoutSubviews;
 @end
+
+
 
 
 
@@ -405,6 +408,7 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 
 @class NSCoder;
 
+/// Teaser view with a built in mechanism to display PhunCoin opt in takeover screens.
 SWIFT_CLASS("_TtC8PhunCoin10TeaserView")
 @interface TeaserView : UIView
 - (nonnull instancetype)initWithFrame:(CGRect)frame SWIFT_UNAVAILABLE;
@@ -412,6 +416,8 @@ SWIFT_CLASS("_TtC8PhunCoin10TeaserView")
 - (void)prepareForInterfaceBuilder;
 - (void)layoutSubviews;
 @end
+
+
 
 
 
