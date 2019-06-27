@@ -4,8 +4,3 @@ framework module PWLocation {
   export *
   module * { export * }
 }
-
-module PWLocation.Swift {
-    header "PWLocation-Swift.h"
-    requires objc
-}
