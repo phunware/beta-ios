@@ -24,7 +24,7 @@
  PWLocation is a location provider SDK. This SDK encompasses a variety of indoor location providers and can be used in conjunction with PWMapKit to delivery and display indoor location location updates.
  */
 
-static NSString * const PWLocationVersion = @"4.0.0.24";
+static NSString * const PWLocationVersion = @"4.0.0.25";
 static NSString * const PWLocationAlgoVersion = @"Drop-for-SDK-Team-081619";
 
 @interface PWLocation : NSObject
