@@ -14,11 +14,11 @@ Pod::Spec.new do |s|
   s.default_subspec = 'all-frameworks'
 
   s.subspec 'all-frameworks' do |sub|
-    sub.dependency 'PWLocationBeta', '~> 3.8.0'
+    sub.dependency 'PWLocationBeta'
   end
 
   s.subspec 'NoAds' do |sub|
-    sub.dependency 'PWLocationBeta/NoAds', '~> 3.8.0'
+    sub.dependency 'PWLocationBeta/NoAds'
   end
 
 
