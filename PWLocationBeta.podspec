@@ -12,10 +12,19 @@ Pod::Spec.new do |s|
   s.swift_version = '4.2'
   
   s.ios.vendored_frameworks = 'Framework/PWLocation.framework'
-  s.ios.dependency 'PWCoreBeta'
   s.ios.dependency 'MistSDK'
   s.ios.dependency 'TMCache'
   s.ios.dependency 'SSZipArchive'
+	
+  s.default_subspec = 'all-frameworks'
+
+  s.subspec 'all-frameworks' do |sub|
+    sub.dependency 'PWCoreBeta', '~> 3.8.0'
+  end
+
+  s.subspec 'NoAds' do |sub|
+    sub.dependency 'PWCoreNoAds', '~> 3.8.0'
+  end
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           
   s.ios.library = 'c++'
   s.ios.frameworks = 'Security', 'QuartzCore', 'SystemConfiguration', 'MobileCoreServices', 'CoreTelephony', 'CoreBluetooth', 'CoreMotion', 'CoreLocation', 'MapKit'
