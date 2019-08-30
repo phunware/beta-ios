@@ -11,6 +11,15 @@ Pod::Spec.new do |s|
   s.platform = :ios, '10.0' 
 	s.ios.vendored_frameworks = 'Framework/PWMapKit.framework'
   
- s.ios.dependency 'PWLocationBeta'
+  s.default_subspec = 'all-frameworks'
+
+  s.subspec 'all-frameworks' do |sub|
+    sub.dependency 'PWLocation', '~> 3.8.0'
+  end
+
+  s.subspec 'NoAds' do |sub|
+    sub.dependency 'PWLocation/NoAds', '~> 3.8.0'
+  end
+
 
 end
