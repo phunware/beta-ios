@@ -11,6 +11,6 @@ Pod::Spec.new do |s|
   s.platform = :ios, '10.0' 
 	s.ios.vendored_frameworks = 'Framework/PWMapKit.framework'
   
-                                                                                                                                                                                                                                                                    	s.ios.frameworks = 'Security', 'CoreGraphics', 'QuartzCore', 'SystemConfiguration', 'MobileCoreServices', 'CoreTelephony', 'CoreLocation', 'MapKit'
+ s.ios.dependency 'PWLocationBeta', '~> 3.8.0'                                                                                                                                                                                                                                                                   	s.ios.frameworks = 'Security', 'CoreGraphics', 'QuartzCore', 'SystemConfiguration', 'MobileCoreServices', 'CoreTelephony', 'CoreLocation', 'MapKit'
 
 end
