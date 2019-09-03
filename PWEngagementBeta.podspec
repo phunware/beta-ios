@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
   s.default_subspec = 'all-frameworks'
 
   s.subspec 'all-frameworks' do |sub|
-    sub.dependency 'PWCore', '~> 3.8.0'
+    sub.dependency 'PWCoreBeta', '~> 3.8.0'
   end
 
   s.subspec 'NoAds' do |sub|
