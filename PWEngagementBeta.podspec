@@ -14,6 +14,18 @@ Pod::Spec.new do |s|
   s.ios.vendored_frameworks = 'Framework/PWEngagement.framework'
   s.ios.dependency 'FMDB'
   s.ios.dependency 'MistSDK'
+	
+  s.default_subspec = 'all-frameworks'
+
+  s.subspec 'all-frameworks' do |sub|
+    sub.dependency 'PWCore', '~> 3.8.0'
+  end
+
+  s.subspec 'NoAds' do |sub|
+    sub.dependency 'PWCoreNoAds', '~> 3.8.0'
+  end
+
+
                                                                                                                                                                                                                                                                                                                                                                                     
   s.library = 'sqlite3', 'z'
   s.ios.frameworks = 'CoreLocation'
