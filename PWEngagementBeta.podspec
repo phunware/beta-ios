@@ -1,11 +1,11 @@
 Pod::Spec.new do |s|
   s.name     = 'PWEngagementBeta'
-  s.version  = '4.0.0.23'
+  s.version  = '4.0.0.24'
   s.license  = 'MIT'
   s.summary  = 'Phunware PWEngagement SDK (BETA)'
   s.homepage = 'https://github.com/phunware/beta-ios'
   s.authors  = { 'Phunware' => 'info@phunware.com' }
-	s.source   = { :git => "https://github.com/phunware/beta-ios.git", :tag => "PWEngagement-4.0.0.23" }
+	s.source   = { :git => "https://github.com/phunware/beta-ios.git", :tag => "PWEngagement-4.0.0.24" }
   s.requires_arc = true
 
   s.platform = :ios, '10.0' 
@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
   s.ios.vendored_frameworks = 'Framework/PWEngagement.framework'
   s.ios.dependency 'FMDB'
   s.ios.dependency 'MistSDK'
-  	
+    	
   s.default_subspec = 'all-frameworks'
 
   s.subspec 'all-frameworks' do |sub|
