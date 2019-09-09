@@ -24,7 +24,7 @@
 #import <PWMapKit/PWSharedLocation.h>
 #import <PWMapKit/PWLocationSharingDelegate.h>
 
-static NSString *const PWMapKitVersion = @"4.0.0.22";
+static NSString *const PWMapKitVersion = @"4.0.0.23";
 
 @interface PWMapKit : NSObject
 
