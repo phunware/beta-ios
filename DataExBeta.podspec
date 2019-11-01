@@ -1,11 +1,11 @@
 Pod::Spec.new do |s|
   s.name     = 'DataExBeta'
-  s.version  = '1.0.0'
+  s.version  = '1.0.0.1'
   s.license  = 'MIT'
   s.summary  = 'Phunware DataExBeta SDK (BETA)'
   s.homepage = 'https://github.com/phunware/beta-ios'
   s.authors  = { 'Phunware' => 'info@phunware.com' }
-	s.source   = { :git => "https://github.com/phunware/beta-ios.git", :tag => "DataExBeta-1.0.0" }
+	s.source   = { :git => "https://github.com/phunware/beta-ios.git", :tag => "DataExBeta-1.0.0.1" }
   s.requires_arc = true
   
   s.platform = :ios, '11.0'
