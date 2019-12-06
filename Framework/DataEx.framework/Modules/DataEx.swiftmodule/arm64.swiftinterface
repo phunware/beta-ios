@@ -1,0 +1,336 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.1 (swiftlang-1100.0.270.13 clang-1100.0.33.7)
+// swift-module-flags: -target arm64-apple-ios11.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name DataEx
+import AdSupport
+import CommonCrypto
+import CommonCrypto.CommonHMAC
+import Foundation
+import Kingfisher
+import Swift
+import SystemConfiguration
+import UIKit
+public typealias ModelRequestCompletion = (Swift.Result<DataEx.DataResponse<Swift.Decodable>, Swift.Error>) -> Swift.Void
+public typealias DataRequestCompletion = (Swift.Result<DataEx.DataResponse<Foundation.Data>, Swift.Error>) -> Swift.Void
+open class NetworkManager {
+  public init()
+  open func executeRequest<T>(requestConfiguration: DataEx.RequestConfigurationProtocol, responseHandler: DataEx.ResponseHandlerProtocol = ResponseHandler(), responseModel: T.Type, modelRequestCompletion: DataEx.ModelRequestCompletion?) where T : Swift.Decodable
+  open func executeRequest(requestConfiguration: DataEx.RequestConfigurationProtocol, responseHandler: DataEx.ResponseHandlerProtocol = ResponseHandler(), dataRequestCompletion: DataEx.DataRequestCompletion?)
+  open func cancelAllDataTasks(completion: (() -> Swift.Void)?)
+  @objc deinit
+}
+extension Environment {
+  public var laasEndpoint: Swift.String {
+    get
+  }
+}
+public class JWTAuthenticator : DataEx.AuthenticatorProtocol {
+  public init(authConfiguration: DataEx.AuthConfiguration)
+  public func addAuthentication(requestConfiguration: DataEx.RequestConfiguration, urlRequest: Foundation.URLRequest, completion: @escaping DataEx.AuthenticationCompletion)
+  @objc deinit
+}
+public typealias AuthenticationCompletion = (Swift.Result<Foundation.URLRequest, Swift.Error>) -> Swift.Void
+public protocol AuthenticatorProtocol {
+  func addAuthentication(requestConfiguration: DataEx.RequestConfiguration, urlRequest: Foundation.URLRequest, completion: @escaping DataEx.AuthenticationCompletion)
+}
+public enum NetworkError : Swift.Error {
+  case emptyServerResponse
+  case invalidServerResponse(errorResponse: DataEx.ErrorResponse)
+  case invalidURL
+  case networkFailure(error: Swift.Error)
+  case noNetworkConnection
+}
+extension NetworkError : Foundation.LocalizedError {
+  public var errorDescription: Swift.String? {
+    get
+  }
+}
+public typealias GenerateRequestCompletion = (Swift.Result<Foundation.URLRequest, Swift.Error>) -> Swift.Void
+public protocol RequestConfigurationProtocol {
+  var endpoint: Swift.String { get }
+  var httpMethod: DataEx.RequestConfiguration.HTTPMethod { get }
+  var authenticator: DataEx.AuthenticatorProtocol? { get }
+  var parameters: [Swift.String : Swift.AnyHashable]? { get }
+  var data: Foundation.Data? { get }
+  var requestParameterType: DataEx.RequestConfiguration.RequestParameterType { get }
+  var cachePolicy: Foundation.URLRequest.CachePolicy { get }
+  var timeoutInterval: Foundation.TimeInterval { get }
+  var requestHeaders: [Swift.String : Swift.String]? { get }
+  func generateRequest(completion: @escaping DataEx.GenerateRequestCompletion)
+}
+public class RequestConfiguration : DataEx.RequestConfigurationProtocol {
+  public enum RequestParameterType : Swift.Int {
+    case json
+    case http
+    public typealias RawValue = Swift.Int
+    public init?(rawValue: Swift.Int)
+    public var rawValue: Swift.Int {
+      get
+    }
+  }
+  public enum HTTPMethod : Swift.String {
+    case get
+    case post
+    case put
+    case delete
+    case head
+    public typealias RawValue = Swift.String
+    public var rawValue: Swift.String {
+      get
+    }
+    public init?(rawValue: Swift.String)
+  }
+  final public let endpoint: Swift.String
+  final public let httpMethod: DataEx.RequestConfiguration.HTTPMethod
+  public var authenticator: DataEx.AuthenticatorProtocol?
+  final public let parameters: [Swift.String : Swift.AnyHashable]?
+  final public let data: Foundation.Data?
+  final public let requestParameterType: DataEx.RequestConfiguration.RequestParameterType
+  final public let cachePolicy: Foundation.URLRequest.CachePolicy
+  final public let timeoutInterval: Foundation.TimeInterval
+  final public let requestHeaders: [Swift.String : Swift.String]?
+  public init(endpoint: Swift.String, httpMethod: DataEx.RequestConfiguration.HTTPMethod, authenticator: DataEx.AuthenticatorProtocol? = nil, parameters: [Swift.String : Swift.AnyHashable]? = nil, data: Foundation.Data? = nil, requestParameterType: DataEx.RequestConfiguration.RequestParameterType = .json, cachePolicy: Foundation.URLRequest.CachePolicy = .useProtocolCachePolicy, timeoutInterval: Foundation.TimeInterval = 60, requestHeaders: [Swift.String : Swift.String]? = nil)
+  open func generateRequest(completion: @escaping DataEx.GenerateRequestCompletion)
+  @objc deinit
+}
+public protocol TakeoverDelegate : AnyObject {
+  func userCancelled()
+}
+@objc public class TeaserView : UIKit.UIView {
+  weak public var delegate: DataEx.TakeoverDelegate?
+  public var buttonForegroundColor: UIKit.UIColor {
+    get
+    set
+  }
+  public var buttonBackgroundColor: UIKit.UIColor {
+    get
+    set
+  }
+  public var buttonActionOverride: (() -> Swift.Void)?
+  @objc override dynamic public func prepareForInterfaceBuilder()
+  @objc override dynamic public func layoutSubviews()
+  @objc deinit
+}
+public enum AuthError : Swift.Error {
+  case invalidJWT
+  public static func == (a: DataEx.AuthError, b: DataEx.AuthError) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+}
+extension AuthError : Foundation.LocalizedError {
+  public var errorDescription: Swift.String? {
+    get
+  }
+}
+public class DataEx {
+  public static let shared: DataEx.DataEx
+  public static let serviceName: Swift.String
+  public static let version: Swift.String
+  public static let link: DataEx.LinkManager
+  public static let asset: DataEx.AssetManager
+  public static var isEligible: Swift.Bool {
+    get
+  }
+  public static var environment: DataEx.Environment {
+    get
+    set
+  }
+  public var linkManager: DataEx.LinkManager {
+    get
+    }
+  public var assetManager: DataEx.AssetManager {
+    get
+    }
+  public static func takeoverInstance(delegate: DataEx.TakeoverDelegate?) -> UIKit.UINavigationController
+  @objc deinit
+}
+public struct AuthConfiguration {
+  public let applicationId: Swift.String
+  public let accessKey: Swift.String
+  public let signatureKey: Swift.String
+  public let environment: DataEx.Environment
+  public init(applicationId: Swift.String, accessKey: Swift.String, signatureKey: Swift.String, environment: DataEx.Environment)
+}
+public typealias BalanceCompletion = (Swift.Result<DataEx.Asset, Swift.Error>) -> Swift.Void
+public class AssetManager {
+  public func balance(completion: DataEx.BalanceCompletion?)
+  @objc deinit
+}
+public typealias LinkCompletion = (Swift.Result<Swift.Void, Swift.Error>) -> Swift.Void
+public class LinkManager {
+  public func linkWallet(completion: DataEx.LinkCompletion?)
+  public func isWalletInstalled() -> Swift.Bool
+  @objc deinit
+}
+public class XAuthAuthenticator : DataEx.AuthenticatorProtocol {
+  public init(authConfiguration: DataEx.AuthConfiguration)
+  public func addAuthentication(requestConfiguration: DataEx.RequestConfiguration, urlRequest: Foundation.URLRequest, completion: @escaping DataEx.AuthenticationCompletion)
+  @objc deinit
+}
+public protocol ResponseHandlerProtocol {
+  func validateResponse(response: Foundation.URLResponse?, data: Foundation.Data?) throws
+}
+public class ResponseHandler : DataEx.ResponseHandlerProtocol {
+  final public let statusCodeRange: Swift.Range<Swift.Int>
+  public init(statusCodeRange: Swift.Range<Swift.Int> = 200..<300)
+  open func validateResponse(response: Foundation.URLResponse?, data: Foundation.Data?) throws
+  @objc deinit
+}
+public enum ReachabilityError : Swift.Error {
+  case FailedToCreateWithAddress(Darwin.sockaddr_in)
+  case FailedToCreateWithHostname(Swift.String)
+  case UnableToSetCallback
+  case UnableToSetDispatchQueue
+  case UnableToGetInitialFlags
+}
+@available(*, unavailable, renamed: "Notification.Name.reachabilityChanged")
+public let ReachabilityChangedNotification: Foundation.NSNotification.Name
+extension NSNotification.Name {
+  public static let reachabilityChanged: Foundation.Notification.Name
+}
+public class Reachability {
+  public typealias NetworkReachable = (DataEx.Reachability) -> ()
+  public typealias NetworkUnreachable = (DataEx.Reachability) -> ()
+  @available(*, unavailable, renamed: "Connection")
+  public enum NetworkStatus : Swift.CustomStringConvertible {
+    case notReachable, reachableViaWiFi, reachableViaWWAN
+    public var description: Swift.String {
+      get
+    }
+    public static func == (a: DataEx.Reachability.NetworkStatus, b: DataEx.Reachability.NetworkStatus) -> Swift.Bool
+    public var hashValue: Swift.Int {
+      get
+    }
+    public func hash(into hasher: inout Swift.Hasher)
+  }
+  public enum Connection : Swift.CustomStringConvertible {
+    case none, wifi, cellular
+    public var description: Swift.String {
+      get
+    }
+    public static func == (a: DataEx.Reachability.Connection, b: DataEx.Reachability.Connection) -> Swift.Bool
+    public var hashValue: Swift.Int {
+      get
+    }
+    public func hash(into hasher: inout Swift.Hasher)
+  }
+  public var whenReachable: DataEx.Reachability.NetworkReachable?
+  public var whenUnreachable: DataEx.Reachability.NetworkUnreachable?
+  @available(*, deprecated, renamed: "allowsCellularConnection")
+  final public let reachableOnWWAN: Swift.Bool
+  public var allowsCellularConnection: Swift.Bool
+  public var notificationCenter: Foundation.NotificationCenter
+  @available(*, deprecated, renamed: "connection.description")
+  public var currentReachabilityString: Swift.String {
+    get
+  }
+  @available(*, unavailable, renamed: "connection")
+  public var currentReachabilityStatus: DataEx.Reachability.Connection {
+    get
+  }
+  public var connection: DataEx.Reachability.Connection {
+    get
+  }
+  required public init(reachabilityRef: SystemConfiguration.SCNetworkReachability, queueQoS: Dispatch.DispatchQoS = .default, targetQueue: Dispatch.DispatchQueue? = nil)
+  convenience public init?(hostname: Swift.String, queueQoS: Dispatch.DispatchQoS = .default, targetQueue: Dispatch.DispatchQueue? = nil)
+  convenience public init?(queueQoS: Dispatch.DispatchQoS = .default, targetQueue: Dispatch.DispatchQueue? = nil)
+  @objc deinit
+}
+extension Reachability {
+  public func startNotifier() throws
+  public func stopNotifier()
+  @available(*, deprecated, message: "Please use `connection != .none`")
+  public var isReachable: Swift.Bool {
+    get
+  }
+  @available(*, deprecated, message: "Please use `connection == .cellular`")
+  public var isReachableViaWWAN: Swift.Bool {
+    get
+  }
+  @available(*, deprecated, message: "Please use `connection == .wifi`")
+  public var isReachableViaWiFi: Swift.Bool {
+    get
+  }
+  public var description: Swift.String {
+    get
+  }
+}
+public struct DataResponse<T> {
+  public let data: T?
+  public let urlResponse: Foundation.URLResponse?
+  public init(data: T?, urlResponse: Foundation.URLResponse?)
+}
+public enum Environment : Swift.String, Swift.CaseIterable {
+  case prod
+  case stage
+  case dev
+  public var title: Swift.String {
+    get
+  }
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+  public init?(rawValue: Swift.String)
+  public typealias AllCases = [DataEx.Environment]
+  public static var allCases: [DataEx.Environment] {
+    get
+  }
+}
+public struct Asset {
+  public let balance: Swift.String
+  public let iconUrl: Swift.String
+}
+public struct ErrorNetworkModel : Swift.Codable {
+  public let errors: [DataEx.ErrorNetworkModel.Error]?
+  public let error: DataEx.ErrorNetworkModel.ErrorData?
+  public let err: Swift.String?
+  public let data: DataEx.ErrorNetworkModel.Data?
+  public init(errors: [DataEx.ErrorNetworkModel.Error]? = nil, error: DataEx.ErrorNetworkModel.ErrorData? = nil, err: Swift.String? = nil, data: DataEx.ErrorNetworkModel.Data? = nil)
+  public struct Error : Swift.Codable {
+    public let field: Swift.String?
+    public let code: Swift.String?
+    public let message: Swift.String?
+    public let details: [Swift.String : Swift.String]?
+    public init(field: Swift.String? = nil, code: Swift.String? = nil, message: Swift.String? = nil, details: [Swift.String : Swift.String]? = nil)
+    public init(from decoder: Swift.Decoder) throws
+    public func encode(to encoder: Swift.Encoder) throws
+  }
+  public struct ErrorData : Swift.Codable {
+    public let code: Swift.String?
+    public let message: Swift.String?
+    public init(from decoder: Swift.Decoder) throws
+    public func encode(to encoder: Swift.Encoder) throws
+  }
+  public struct Data : Swift.Codable {
+    public let message: Swift.String?
+    public init(from decoder: Swift.Decoder) throws
+    public func encode(to encoder: Swift.Encoder) throws
+  }
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+public struct ErrorResponse {
+  public let error: DataEx.ErrorNetworkModel?
+  public let responseStatusCode: Swift.Int
+  public let data: Foundation.Data?
+  public init(error: DataEx.ErrorNetworkModel?, responseStatusCode: Swift.Int, data: Foundation.Data?)
+}
+extension DataEx.Environment : Swift.Equatable {}
+extension DataEx.Environment : Swift.Hashable {}
+extension DataEx.Environment : Swift.RawRepresentable {}
+extension DataEx.RequestConfiguration.RequestParameterType : Swift.Equatable {}
+extension DataEx.RequestConfiguration.RequestParameterType : Swift.Hashable {}
+extension DataEx.RequestConfiguration.RequestParameterType : Swift.RawRepresentable {}
+extension DataEx.RequestConfiguration.HTTPMethod : Swift.Equatable {}
+extension DataEx.RequestConfiguration.HTTPMethod : Swift.Hashable {}
+extension DataEx.RequestConfiguration.HTTPMethod : Swift.RawRepresentable {}
+extension DataEx.AuthError : Swift.Equatable {}
+extension DataEx.AuthError : Swift.Hashable {}
+@available(*, unavailable, renamed: "Connection")
+extension DataEx.Reachability.NetworkStatus : Swift.Equatable {}
+@available(*, unavailable, renamed: "Connection")
+extension DataEx.Reachability.NetworkStatus : Swift.Hashable {}
+extension DataEx.Reachability.Connection : Swift.Equatable {}
+extension DataEx.Reachability.Connection : Swift.Hashable {}
