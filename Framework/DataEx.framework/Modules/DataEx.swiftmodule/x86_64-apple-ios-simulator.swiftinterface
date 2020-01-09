@@ -6,9 +6,11 @@ import CommonCrypto
 import CommonCrypto.CommonHMAC
 import Foundation
 import Kingfisher
+import PWCore
 import Swift
 import SystemConfiguration
 import UIKit
+import WebKit
 public typealias ModelRequestCompletion = (Swift.Result<DataEx.DataResponse<Swift.Decodable>, Swift.Error>) -> Swift.Void
 public typealias DataRequestCompletion = (Swift.Result<DataEx.DataResponse<Foundation.Data>, Swift.Error>) -> Swift.Void
 open class NetworkManager {
