@@ -125,12 +125,18 @@ extension AuthError : Foundation.LocalizedError {
     get
   }
 }
+public class AnalyticsManager {
+  public func sendTakeoverClickEvent()
+  public func sendTakeoverImpressionEvent()
+  @objc deinit
+}
 public class DataExModule {
   public static let shared: DataEx.DataExModule
   public static let serviceName: Swift.String
   public static let version: Swift.String
   public static let link: DataEx.LinkManager
   public static let asset: DataEx.AssetManager
+  public static let analytics: DataEx.AnalyticsManager
   public static var isEligible: Swift.Bool {
     get
   }
@@ -144,6 +150,9 @@ public class DataExModule {
   public var assetManager: DataEx.AssetManager {
     get
     }
+  public var analyticsManager: DataEx.AnalyticsManager {
+    get
+    }
   public static func takeoverInstance(delegate: DataEx.TakeoverDelegate?) -> UIKit.UINavigationController
   @objc deinit
 }
@@ -154,9 +163,9 @@ public struct AuthConfiguration {
   public let environment: DataEx.Environment
   public init(applicationId: Swift.String, accessKey: Swift.String, signatureKey: Swift.String, environment: DataEx.Environment)
 }
-public typealias BalanceCompletion = (Swift.Result<DataEx.Asset, Swift.Error>) -> Swift.Void
+public typealias BalancesCompletion = (Swift.Result<[DataEx.Asset], Swift.Error>) -> Swift.Void
 public class AssetManager {
-  public func balance(completion: DataEx.BalanceCompletion?)
+  public func balances(completion: DataEx.BalancesCompletion?)
   @objc deinit
 }
 public typealias LinkCompletion = (Swift.Result<Swift.Void, Swift.Error>) -> Swift.Void
@@ -282,6 +291,7 @@ public enum Environment : Swift.String, Swift.CaseIterable {
 }
 public struct Asset {
   public let balance: Swift.String
+  public let code: Swift.String
   public let iconUrl: Swift.String
 }
 public struct ErrorNetworkModel : Swift.Codable {
