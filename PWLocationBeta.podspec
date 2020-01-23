@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name     = 'PWLocationBeta'
-  s.version  = '4.0.0.41'
+  s.version  = '4.0.0.42'
   s.license  = 'MIT'
   s.summary  = 'Phunware PWLocation SDK (BETA)'
   s.homepage = 'https://github.com/phunware/beta-ios'
