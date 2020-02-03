@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name     = 'PWLocationBeta'
-  s.version  = '4.0.0.44'
+  s.version  = '4.0.0.45'
   s.license  = 'MIT'
   s.summary  = 'Phunware PWLocation SDK (BETA)'
   s.homepage = 'https://github.com/phunware/beta-ios'
@@ -15,7 +15,7 @@ Pod::Spec.new do |s|
   s.ios.dependency 'MistSDK'
   s.ios.dependency 'TMCache'
   s.ios.dependency 'SSZipArchive'
-                                                                        	
+                                                                            	
   s.default_subspec = 'all-frameworks'
 
   s.subspec 'all-frameworks' do |sub|
