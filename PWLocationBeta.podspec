@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
   s.summary  = 'Phunware PWLocation SDK (BETA)'
   s.homepage = 'https://github.com/phunware/beta-ios'
   s.authors  = { 'Phunware' => 'info@phunware.com' }
-	s.source   = { :git => "https://github.com/phunware/beta-ios.git", :tag => "PWLocation-4.0.0.41" }
+	s.source   = { :git => "https://github.com/phunware/beta-ios.git", :tag => "PWLocation-4.0.0.46" }
   s.requires_arc = true
   
   s.platform = :ios, '10.0'
