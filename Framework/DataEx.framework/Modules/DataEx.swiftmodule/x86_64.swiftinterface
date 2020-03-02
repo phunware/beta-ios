@@ -168,6 +168,14 @@ public class AssetManager {
   public func balances(completion: DataEx.BalancesCompletion?)
   @objc deinit
 }
+public struct MaasKeys {
+  public let applicationId: Swift.String
+  public let accessKey: Swift.String
+  public let signatureKey: Swift.String
+}
+extension Environment {
+  public func maasKeys() -> DataEx.MaasKeys
+}
 public typealias LinkCompletion = (Swift.Result<Swift.Void, Swift.Error>) -> Swift.Void
 public class LinkManager {
   public func linkWallet(completion: DataEx.LinkCompletion?)
