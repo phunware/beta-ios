@@ -57,17 +57,6 @@
  */
 + (void)enableAutomaticScreenViewEvents:(BOOL)enable;
 
-/**
- Determines whether location information is included in analytic events.
- @param enable Will include location information in analytic events.  Default is enabled.
- */
-+ (void)enableLocationAccess:(BOOL)enable;
-
-/**
- Returns whether location information will be included in analytic events.
- */
-+ (BOOL)isLocationAccessEnabled;
-
 #pragma mark - Deprecated Methods
 
 /**

@@ -21,7 +21,7 @@
 #import <PWCore/PWCoreDevice.h>
 #import <PWCore/PWFeatureFlagger.h>
 
-static NSString * const PWCoreVersion = @"4.0.0.42";
+static NSString * const PWCoreVersion = @"4.0.0.43";
 
 /**
  `PWCore` implements core functionality used in all MaaS modules. All MaaS modules have a `PWCore` dependency.
@@ -96,6 +96,19 @@ typedef NS_ENUM(NSInteger, PWEnvironment) {
  @param moduleName The name of the dependent module to be registered.
  */
 + (NSString *)getVersionForModule:(NSString *)moduleName;
+
+#pragma mark - Configuration Options
+
+/**
+ Determines whether location updates are permitted.
+ @param enable Will permit location updates and include location information in analytic events.  Default is enabled.
+ */
++ (void)enableLocationAccess:(BOOL)enable;
+
+/**
+ Returns whether location updates are permitted.
+ */
++ (BOOL)isLocationAccessEnabled;
 
 #pragma mark - Internal Use Only
 
