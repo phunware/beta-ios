@@ -15,7 +15,7 @@
 #import <PWEngagement/PWMELocalNotification.h>
 #import <PWEngagement/PWMEAttributeManager.h>
 
-static NSString *const PWEngagementVersion = @"4.0.0.44";
+static NSString *const PWEngagementVersion = @"4.0.0.45";
 
 /**
  The message identifier key which may be included in the notification's userInfo dictionary.
@@ -108,7 +108,7 @@ extern NSString *const PWMEMonitoredGeoZoneChangesNotificationKey;
  * - 'didFailToRegisterForRemoteNotificationsWithError:withNotificationHandler:'
  * - 'didReceiveRemoteNotification:withNotificationHandler:'
  *
- * You can optionally add a delegate to be informed about errors while initalizing the mobile engagement service and to control the display of local notifications to the user.
+ * You can optionally add a delegate to be informed about errors while initializing the mobile engagement service and to control the display of local notifications to the user.
  **/
 @interface PWEngagement : NSObject
 
